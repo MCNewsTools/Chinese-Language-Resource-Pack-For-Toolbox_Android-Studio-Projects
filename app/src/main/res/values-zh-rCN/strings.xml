@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Toolbox 模组正体中文资源包 For Minecraft PE</string>
+    <string name="app_name_simplify">Toolbox 模组正体中文资源包</string>
+    <string name="app_author">By.旋风之音 GoneTone</string>
+
+    <string name="navigation_drawer_open">开启导航栏</string>
+    <string name="navigation_drawer_close">关闭导航栏</string>
+
+    <string name="nav_google_play">前往 Google Play</string>
+    <string name="nav_contact">联络开发人员</string>
+    <string name="nav_must_install">必须安装的 App</string>
+    <string name="nav_mcpe">Minecraft: Pocket Edition</string>
+    <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
+
+    <string name="action_delete">删除资源包</string>
+
+    <string name="text_description">将您的 Toolbox 模组新增正体中文！\n\n请点击下方按钮安装资源包，完成后请启动 Toolbox 并于「设置 > 全球资源包」内套用。</string>
+
+    <string name="button_install">安装语言包</string>
+    <string name="button_re_install">重新安装语言包</string>
+    <string name="button_text_installing">安装中...</string>
+    <string name="button_text_install_done">安装完成，开启 Toolbox！</string>
+    <string name="button_text_report">回报问题</string>
+
+    <string name="message_successful">Toolbox 模组正体中文资源包安装成功，请启动 Toolbox 并套用资源包！</string>
+    <string name="message_no_install_toolbox">您未安装 Toolbox，请至 Google Play 下载！</string>
+    <string name="message_open_toolbox">已开启 Toolbox，请至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包。</string>
+    <string name="message_error">安装失败，请联络开发人员！</string>
+    <string name="message_delete">语言包删除成功！</string>
+    <string name="message_open_google_play">请帮本 APP 评分为 5 星，感谢您OuO</string>
+</resources>

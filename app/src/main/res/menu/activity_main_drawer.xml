@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_google_play"
+            android:icon="@drawable/ic_menu_google_play"
+            android:title="@string/nav_google_play" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_menu_messenger"
+            android:title="@string/nav_contact" />
+    </group>
+
+    <item android:title="@string/nav_must_install">
+        <menu>
+            <item
+                android:id="@+id/nav_mcpe_google_play"
+                android:icon="@drawable/ic_menu_mcpe"
+                android:title="@string/nav_mcpe" />
+            <item
+                android:id="@+id/nav_toolbox_google_play"
+                android:icon="@drawable/ic_menu_toolbox"
+                android:title="@string/nav_toolbox" />
+        </menu>
+    </item>
+
+</menu>
