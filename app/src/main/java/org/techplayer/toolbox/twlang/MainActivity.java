@@ -1,8 +1,12 @@
 package org.techplayer.toolbox.twlang;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -29,6 +33,8 @@ import java.io.File;
 import java.io.IOException;
 
 import flipagram.assetcopylib.AssetCopier;
+
+import static org.techplayer.toolbox.twlang.R.menu.main;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -187,7 +193,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(main, menu);
         return true;
     }
 
@@ -223,9 +229,22 @@ public class MainActivity extends AppCompatActivity
 
             Toast.makeText(MainActivity.this, R.string.message_open_google_play, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_contact) {
-            Uri uri=Uri.parse("https://www.messenger.com/t/100002587292678/");
-            Intent i=new Intent(Intent.ACTION_VIEW,uri);
-            startActivity(i); // 啟動 FB Messenger (@GoneToneDY)
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.facebook.orca");
+            if (intent != null){
+                Uri uri=Uri.parse("fb-messenger://user/100002587292678");
+                Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(i); // 啟動 FB Messenger APP (@GoneToneDY)
+            } else {
+                ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = cManager.getActiveNetworkInfo();
+                if (info != null && info.isAvailable()){
+                    Uri uri=Uri.parse("https://www.messenger.com/t/100002587292678/");
+                    Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                    startActivity(i); // 啟動 FB Messenger 網頁 (@GoneToneDY)
+                }else{
+                    Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show();
+                }
+            }
         } else if (id == R.id.nav_mcpe_google_play) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.mojang.minecraftpe");
             if (intent != null){
