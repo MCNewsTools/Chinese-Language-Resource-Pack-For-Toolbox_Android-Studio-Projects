@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity
             deleteDir(f); // 刪除資料夾文件
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
             Toast.makeText(getApplication(), R.string.message_delete, Toast.LENGTH_SHORT).show();
+            startSample();
 
             return true;
         }
