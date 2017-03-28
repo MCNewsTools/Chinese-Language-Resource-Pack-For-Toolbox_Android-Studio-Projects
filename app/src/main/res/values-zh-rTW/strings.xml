@@ -14,8 +14,11 @@
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
 
     <string name="action_delete">刪除資源包</string>
+    <string name="action_share">分享此 APP</string>
 
     <string name="text_description">將您的 Toolbox 模組新增正體中文！\n\n請點擊下方按鈕安裝資源包，完成後請啟動 Toolbox 並於「設定 > 全球資源包」內套用。</string>
+    <string name="text_share_to">分享至...</string>
+    <string name="text_share_body">立刻下載「Toolbox 模組正體中文資源包 For Minecraft PE」，讓您的「Toolbox 模組」有正體中文語言！</string>
 
     <string name="button_install">安裝語言包</string>
     <string name="button_re_install">重新安裝語言包</string>

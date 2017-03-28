@@ -14,8 +14,11 @@
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
 
     <string name="action_delete">Delete resource pack</string>
+    <string name="action_share">Share this APP</string>
 
     <string name="text_description">Added Traditional Chinese to your Toolbox mod\n\nPlease click the button below to install the Resource Pack, after finishing, start the Toolbox and apply it in the "Settings> Global Resource Pack".</string>
+    <string name="text_share_to">Share to...</string>
+    <string name="text_share_body">Download the "Toolbox Traditional Chinese Resource Pack For Minecraft PE" at once, so that your "Toolbox mod" has a Traditional Chinese language!</string>
 
     <string name="button_install">Install language pack</string>
     <string name="button_re_install">Reinstall language pack</string>

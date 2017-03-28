@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setItemIconTintList(null);
 
         // 判斷資料夾是否存在
-        if(!f.exists()){
+        if (!f.exists()) {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
         } else {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
 
-                if (count == -1){
+                if (count == -1) {
                     // 失敗
                     f.delete(); // 刪除空資料夾
 
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity
                         @Override
                         public void onClick(View v) {
                             Intent intent = getPackageManager().getLaunchIntentForPackage("io.mrarm.mctoolbox");
-                            if (intent != null){
+                            if (intent != null) {
                                 startActivity(intent); // 啟動 Toolbox for Minecraft: PE
                                 Toast.makeText(getApplication(), R.string.message_open_toolbox, Toast.LENGTH_SHORT).show();
                             } else {
@@ -212,6 +212,19 @@ public class MainActivity extends AppCompatActivity
             startSample();
 
             return true;
+        } else if (id == R.id.action_share) {
+            // 分享功能
+            String subject = getString(R.string.app_name);
+            String body = getString(R.string.text_share_body) + "\nhttps://play.google.com/store/apps/details?id=org.techplayer.toolbox.twlang";
+            String chooserTitle = getString(R.string.text_share_to);
+
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+            startActivity(Intent.createChooser(sharingIntent, chooserTitle));
+
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -231,24 +244,24 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(MainActivity.this, R.string.message_open_google_play, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_contact) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.facebook.orca");
-            if (intent != null){
+            if (intent != null) {
                 Uri uri=Uri.parse("fb-messenger://user/100002587292678");
                 Intent i=new Intent(Intent.ACTION_VIEW,uri);
                 startActivity(i); // 啟動 FB Messenger APP (@GoneToneDY)
             } else {
                 ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo info = cManager.getActiveNetworkInfo();
-                if (info != null && info.isAvailable()){
+                if (info != null && info.isAvailable()) {
                     Uri uri=Uri.parse("https://www.messenger.com/t/100002587292678/");
                     Intent i=new Intent(Intent.ACTION_VIEW,uri);
                     startActivity(i); // 啟動 FB Messenger 網頁 (@GoneToneDY)
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show();
                 }
             }
         } else if (id == R.id.nav_mcpe_google_play) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.mojang.minecraftpe");
-            if (intent != null){
+            if (intent != null) {
                 startActivity(intent); // 啟動 Minecraft: Pocket Edition
             } else {
                 Uri uri=Uri.parse("market://details?id=com.mojang.minecraftpe");
@@ -257,7 +270,7 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.nav_toolbox_google_play) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("io.mrarm.mctoolbox");
-            if (intent != null){
+            if (intent != null) {
                 startActivity(intent); // 啟動 Toolbox for Minecraft: PE
             } else {
                 Uri uri=Uri.parse("market://details?id=io.mrarm.mctoolbox");
