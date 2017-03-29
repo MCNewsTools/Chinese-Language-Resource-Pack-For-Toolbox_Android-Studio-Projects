@@ -9,7 +9,7 @@
 
     <string name="nav_google_play">Go to Google Play</string>
     <string name="nav_contact">Contact the developer</string>
-    <string name="nav_must_install">Must install App</string>
+    <string name="nav_title_must_install">Must install App</string>
     <string name="nav_mcpe">Minecraft: Pocket Edition</string>
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
 
