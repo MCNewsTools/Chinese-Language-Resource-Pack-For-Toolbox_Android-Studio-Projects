@@ -33,4 +33,9 @@
     <string name="message_delete">語言包刪除成功！</string>
     <string name="message_open_google_play">請幫本 APP 評分為 5 星，感謝您OuO</string>
     <string name="message_no_network">無網路連接，請檢察您的網路狀態</string>
+
+    <string name="alertdialog_contact_list_title">請選擇聯絡方式</string>
+    <string name="alertdialog_message_no_install_line">您未安裝 \"Line\"，是否要前往 Google Play 安裝？</string>
+    <string name="alertdialog_button_yes">是</string>
+    <string name="alertdialog_button_no">否</string>
 </resources>
