@@ -12,6 +12,8 @@
     <string name="nav_title_must_install">必须安装的 App</string>
     <string name="nav_mcpe">Minecraft: Pocket Edition</string>
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
+    <string name="nav_title_about">关于</string>
+    <string name="nav_github_source">此项目开源至 GitHub</string>
 
     <string name="action_delete">删除资源包</string>
     <string name="action_share">分享此 APP</string>

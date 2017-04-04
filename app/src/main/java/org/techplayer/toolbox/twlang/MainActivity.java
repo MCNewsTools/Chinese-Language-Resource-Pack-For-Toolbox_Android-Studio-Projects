@@ -247,6 +247,7 @@ public class MainActivity extends AppCompatActivity
             CharSequence[] contactList = {"FB Messenger", "Line", "Telegram", "Twitter"};
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.alertdialog_contact_list_title)
+                    .setIcon(R.drawable.ic_menu_contact)
                     .setItems(contactList, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int which) {
@@ -265,7 +266,7 @@ public class MainActivity extends AppCompatActivity
                                             Intent i=new Intent(Intent.ACTION_VIEW,uri);
                                             startActivity(i); // 啟動 FB Messenger 網頁 (@GoneToneDY)
                                         } else {
-                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show();
+                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
                                         }
                                     }
                                     break;
@@ -314,7 +315,7 @@ public class MainActivity extends AppCompatActivity
                                             Intent i=new Intent(Intent.ACTION_VIEW,uri);
                                             startActivity(i); // 啟動 Telegram 網頁 (@GoneTone)
                                         } else {
-                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show();
+                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
                                         }
                                     }
                                     break;
@@ -332,7 +333,7 @@ public class MainActivity extends AppCompatActivity
                                             Intent i=new Intent(Intent.ACTION_VIEW,uri);
                                             startActivity(i); // 啟動 Twitter 網頁 (@TPGoneTone)
                                         } else {
-                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show();
+                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
                                         }
                                     }
                                     break;
@@ -356,6 +357,16 @@ public class MainActivity extends AppCompatActivity
                 Uri uri=Uri.parse("market://details?id=io.mrarm.mctoolbox");
                 Intent i=new Intent(Intent.ACTION_VIEW,uri);
                 startActivity(i); // 啟動 Google Play (io.mrarm.mctoolbox)
+            }
+        } else if (id == R.id.nav_github_source) {
+            ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo info = cManager.getActiveNetworkInfo();
+            if (info != null && info.isAvailable()) {
+                Uri uri=Uri.parse("https://github.com/MCNewsTools/Toolbox-Traditional-Chinese-Resource-Pack_StudioProjects");
+                Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(i); // 啟動 GitHub 網頁專案頁
+            } else {
+                Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
             }
         }
 

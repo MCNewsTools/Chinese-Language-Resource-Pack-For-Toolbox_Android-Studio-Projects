@@ -8,7 +8,7 @@
             android:title="@string/nav_google_play" />
         <item
             android:id="@+id/nav_contact"
-            android:icon="@drawable/ic_menu_messenger"
+            android:icon="@drawable/ic_menu_contact"
             android:title="@string/nav_contact" />
     </group>
 
@@ -22,6 +22,15 @@
                 android:id="@+id/nav_toolbox_google_play"
                 android:icon="@drawable/ic_menu_toolbox"
                 android:title="@string/nav_toolbox" />
+        </menu>
+    </item>
+
+    <item android:title="@string/nav_title_about">
+        <menu>
+            <item
+                android:id="@+id/nav_github_source"
+                android:icon="@drawable/ic_menu_github"
+                android:title="@string/nav_github_source" />
         </menu>
     </item>
 

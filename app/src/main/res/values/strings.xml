@@ -12,6 +12,8 @@
     <string name="nav_title_must_install">Must install App</string>
     <string name="nav_mcpe">Minecraft: Pocket Edition</string>
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
+    <string name="nav_title_about">About</string>
+    <string name="nav_github_source">This project is open source to GitHub</string>
 
     <string name="action_delete">Delete resource pack</string>
     <string name="action_share">Share this APP</string>
