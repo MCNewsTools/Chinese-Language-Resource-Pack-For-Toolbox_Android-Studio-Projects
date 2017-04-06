@@ -1,4 +1,4 @@
-package org.techplayer.toolbox.twlang;
+package org.techplayer.toolbox.twlangnew;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
@@ -35,7 +34,7 @@ import java.io.IOException;
 
 import flipagram.assetcopylib.AssetCopier;
 
-import static org.techplayer.toolbox.twlang.R.menu.main;
+import static org.techplayer.toolbox.twlangnew.R.menu.main;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri=Uri.parse("market://details?id=org.techplayer.toolbox.twlang");
+                Uri uri=Uri.parse("market://details?id=org.techplayer.toolbox.twlangnew");
                 Intent i=new Intent(Intent.ACTION_VIEW,uri);
                 startActivity(i); // 啟動 Google Play
 
@@ -216,7 +215,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_share) {
             // 分享功能
             String subject = getString(R.string.app_name);
-            String body = getString(R.string.text_share_body) + "\nhttps://play.google.com/store/apps/details?id=org.techplayer.toolbox.twlang";
+            String body = getString(R.string.text_share_body) + "\nhttps://play.google.com/store/apps/details?id=org.techplayer.toolbox.twlangnew";
             String chooserTitle = getString(R.string.text_share_to);
 
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
@@ -238,7 +237,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_google_play) {
-            Uri uri=Uri.parse("market://details?id=org.techplayer.toolbox.twlang");
+            Uri uri=Uri.parse("market://details?id=org.techplayer.toolbox.twlangnew");
             Intent i=new Intent(Intent.ACTION_VIEW,uri);
             startActivity(i); // 啟動 Google Play (org.techplayer.toolbox.twlang)
 

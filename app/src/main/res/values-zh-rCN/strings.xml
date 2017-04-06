@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Toolbox 模组正体中文资源包 For Minecraft PE</string>
-    <string name="app_name_simplify">Toolbox 模组正体中文资源包</string>
+    <string name="app_name">正体中文资源包 For Toolbox</string>
     <string name="app_author">By.旋风之音 GoneTone</string>
 
     <string name="navigation_drawer_open">开启导航栏</string>
@@ -20,7 +19,7 @@
 
     <string name="text_description">将您的 Toolbox 模组新增正体中文！\n\n请点击下方按钮安装资源包，完成后请启动 Toolbox 并于「设置 > 全球资源包」内套用。</string>
     <string name="text_share_to">分享至...</string>
-    <string name="text_share_body">立刻下载「Toolbox 模组正体中文资源包 For Minecraft PE」，让您的「Toolbox 模组」有正体中文语言！</string>
+    <string name="text_share_body">立刻下载「正体中文资源包 For Toolbox」，让您的「Toolbox 模组」有正体中文语言！</string>
 
     <string name="button_install">安装语言包</string>
     <string name="button_re_install">重新安装语言包</string>

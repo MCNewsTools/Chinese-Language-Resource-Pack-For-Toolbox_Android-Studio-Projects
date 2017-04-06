@@ -4,11 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "org.techplayer.toolbox.twlang"
+        applicationId "org.techplayer.toolbox.twlangnew"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 8
-        versionName "2.2"
+        versionCode 9
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
