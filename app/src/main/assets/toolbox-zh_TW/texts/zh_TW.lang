@@ -1,4 +1,4 @@
-## Toolbox 繁體中翻譯字串
+## Toolbox 正體中文翻譯字串
 ## By.旋風之音 GoneTone
 ## https://www.facebook.com/TPGoneTone
 
@@ -64,6 +64,7 @@ Repair=修復
 
 Mods=模組
 Mods settings=模組設定
+Commands modes=指令模式
 Render players=顯示玩家
 Render waypoints=顯示航點
 Render mobs=顯示怪物
@@ -76,4 +77,16 @@ Draw waypoints icons=顯示航點圖標
 Minimap scale=小地圖尺寸
 Minimap radius=小地圖半徑
 Enable TreeCapitator=啟用快速砍樹
-Show armor hub=顯示耐久度
+Show armor hud=顯示耐久度
+Render health bars=顯示血量條
+
+Cheats=作弊
+Cheats settings=作弊設定
+Walk through walls=穿牆
+Automatically walk=自動行走
+Immortality=不朽
+2 blocks high jump=跳兩個方塊高
+Combat=戰鬥
+Killaura (Mobs only)=範圍自動打 (只限怪物)
+Instakill=Instakill
+AutoLeave=自動離開
