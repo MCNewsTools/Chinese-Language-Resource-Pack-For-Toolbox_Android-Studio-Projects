@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -29,6 +30,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sromku.simple.storage.SimpleStorage;
+import com.sromku.simple.storage.Storage;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -38,9 +42,13 @@ import static org.techplayer.toolbox.twlangnew.R.menu.main;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    String myFile = "/games/com.mojang/resource_packs/toolbox-zh_TW";
+    Storage storage = SimpleStorage.getExternalStorage(); // 初始化檔案管理
+
+    String myFile = "/games/com.mojang/resource_packs/toolbox-zh_TW/";
     String myPath = Environment.getExternalStorageDirectory() + myFile;
     File f = new File(myPath); // 存放路徑資料夾
+
+    String version = "4.2.0"; // 語言包版本號
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,18 +89,6 @@ public class MainActivity extends AppCompatActivity
         checkPermission();
     }
 
-    public boolean deleteDir(File dir) {
-        if (dir.isDirectory()) {
-            File[] files = dir.listFiles();
-            for (int i=0;i<files.length;i++) {
-                if (!deleteDir(files[i]))
-                    return false;
-            }
-        }
-
-        return dir.delete();
-    }
-
     private void startSample() {
         findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
             Button btn = (Button) findViewById(R.id.btn_download);
@@ -100,7 +96,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 btn.setEnabled(false); // 禁用按鈕
 
-                deleteDir(f); // 刪除資料夾文件
+                storage.deleteDirectory(myFile); // 刪除資料夾
 
                 ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_installing);
 
@@ -118,7 +114,7 @@ public class MainActivity extends AppCompatActivity
 
                 if (count == -1) {
                     // 失敗
-                    f.delete(); // 刪除空資料夾
+                    storage.deleteDirectory(myFile); // 刪除資料夾
 
                     btn.setEnabled(true); // 啟用按鈕
 
@@ -206,7 +202,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_delete) {
-            deleteDir(f); // 刪除資料夾文件
+            storage.deleteDirectory(myFile); // 刪除資料夾
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
             Toast.makeText(getApplication(), R.string.message_delete, Toast.LENGTH_SHORT).show();
             startSample();

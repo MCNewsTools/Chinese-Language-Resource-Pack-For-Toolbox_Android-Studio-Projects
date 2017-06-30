@@ -7,8 +7,8 @@ android {
         applicationId "org.techplayer.toolbox.twlangnew"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 11
-        versionName "4.1.0"
+        versionCode 12
+        versionName "4.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,6 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.sromku:simple-storage:1.2.1'
     testCompile 'junit:junit:4.12'
     compile project(path: ':assetscopylib')
 }

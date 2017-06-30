@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Toolbox-Traditional-Chinese-Resource-Pack_StudioProjects.iml" filepath="$PROJECT_DIR$/Toolbox-Traditional-Chinese-Resource-Pack_StudioProjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/assetscopylib/assetscopylib.iml" filepath="$PROJECT_DIR$/assetscopylib/assetscopylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-storage/simple-storage.iml" filepath="$PROJECT_DIR$/simple-storage/simple-storage.iml" />
     </modules>
   </component>
 </project>

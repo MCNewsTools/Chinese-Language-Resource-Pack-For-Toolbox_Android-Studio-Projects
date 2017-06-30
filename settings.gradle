@@ -1,1 +1,1 @@
-include ':app', ':assetscopylib'
+include ':app', ':assetscopylib', ':simple-storage'
