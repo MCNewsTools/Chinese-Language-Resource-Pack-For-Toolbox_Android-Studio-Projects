@@ -85,7 +85,7 @@ toolbox.menu.cheats.player.auto_walk=自動行走
 toolbox.menu.cheats.player.immortality=不朽
 toolbox.menu.cheats.player.high_jump=跳兩個方塊高
 toolbox.menu.cheats.combat=戰鬥
-toolbox.menu.cheats.combat.killaura=範圍自動打 (只限怪物)
+toolbox.menu.cheats.combat.killaura=範圍自動打 (只限生物)
 toolbox.menu.cheats.combat.instakill=秒殺
 toolbox.menu.cheats.combat.auto_leave=當剩下 8 顆心時離開
 
