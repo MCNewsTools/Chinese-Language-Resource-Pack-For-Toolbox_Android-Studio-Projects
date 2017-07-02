@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -48,8 +47,6 @@ public class MainActivity extends AppCompatActivity
     String myPath = Environment.getExternalStorageDirectory() + myFile;
     File f = new File(myPath); // 存放路徑資料夾
 
-    String version = "4.2.0"; // 語言包版本號
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +86,106 @@ public class MainActivity extends AppCompatActivity
         checkPermission();
     }
 
+    // 聯絡方式選擇
+    private void contact() {
+        CharSequence[] contactList = {"FB Messenger", "Line", "Telegram", "Twitter"};
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle(R.string.alertdialog_contact_list_title)
+                .setIcon(R.drawable.ic_dialog_email)
+                .setItems(contactList, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        switch (which) {
+                            case 0:
+                                Intent messenger = getPackageManager().getLaunchIntentForPackage("com.facebook.orca");
+                                if (messenger != null) {
+                                    Uri uri=Uri.parse("fb-messenger://user/100002587292678");
+                                    Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                    startActivity(i); // 啟動 FB Messenger APP (@GoneToneDY)
+                                } else {
+                                    ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                                    NetworkInfo info = cManager.getActiveNetworkInfo();
+                                    if (info != null && info.isAvailable()) {
+                                        Uri uri=Uri.parse("https://www.messenger.com/t/100002587292678/");
+                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                        startActivity(i); // 啟動 FB Messenger 網頁 (@GoneToneDY)
+                                    } else {
+                                        Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
+                                    }
+                                }
+                                break;
+                            case 1:
+                                Intent line = getPackageManager().getLaunchIntentForPackage("jp.naver.line.android");
+                                if (line != null) {
+                                    Uri uri=Uri.parse("line://ti/p/RgfP0uDWKe");
+                                    Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                    startActivity(i); // 啟動 Line APP (ID：29022716)
+                                } else {
+                                    new AlertDialog.Builder(MainActivity.this)
+                                            .setMessage(R.string.alertdialog_message_no_install_line)
+                                            .setCancelable(false)
+                                            .setPositiveButton(R.string.alertdialog_button_yes,
+                                                    new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                            Uri uri=Uri.parse("market://details?id=jp.naver.line.android");
+                                                            Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                                            startActivity(i); // 啟動 Google Play (jp.naver.line.android)
+                                                        }
+                                                    }
+                                            )
+                                            .setNegativeButton(R.string.alertdialog_button_no,
+                                                    new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                            // 關閉視窗
+                                                        }
+                                                    }
+                                            )
+                                            .show();
+                                }
+                                break;
+                            case 2:
+                                Intent telegram = getPackageManager().getLaunchIntentForPackage("org.telegram.messenger");
+                                if (telegram != null) {
+                                    Uri uri=Uri.parse("tg://resolve?domain=GoneTone");
+                                    Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                    startActivity(i); // 啟動 Telegram APP (@GoneTone)
+                                } else {
+                                    ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                                    NetworkInfo info = cManager.getActiveNetworkInfo();
+                                    if (info != null && info.isAvailable()) {
+                                        Uri uri=Uri.parse("https://web.telegram.org/#/im?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3DGoneTone");
+                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                        startActivity(i); // 啟動 Telegram 網頁 (@GoneTone)
+                                    } else {
+                                        Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
+                                    }
+                                }
+                                break;
+                            case 3:
+                                Intent twitter = getPackageManager().getLaunchIntentForPackage("com.twitter.android");
+                                if (twitter != null) {
+                                    Uri uri=Uri.parse("twitter://user?user_id=2742134276");
+                                    Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                    startActivity(i); // 啟動 Twitter APP (@TPGoneTone)
+                                } else {
+                                    ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                                    NetworkInfo info = cManager.getActiveNetworkInfo();
+                                    if (info != null && info.isAvailable()) {
+                                        Uri uri=Uri.parse("https://twitter.com/TPGoneTone");
+                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                        startActivity(i); // 啟動 Twitter 網頁 (@TPGoneTone)
+                                    } else {
+                                        Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                }).show();
+    }
+
     private void startSample() {
         findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
             Button btn = (Button) findViewById(R.id.btn_download);
@@ -118,40 +215,68 @@ public class MainActivity extends AppCompatActivity
 
                     btn.setEnabled(true); // 啟用按鈕
 
-                    Toast.makeText(MainActivity.this, R.string.message_error, Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle(R.string.alertdialog_error_title)
+                            .setIcon(R.drawable.ic_dialog_alert)
+                            .setMessage(R.string.alertdialog_error_message)
+                            .setCancelable(false)
+                            .setNegativeButton(R.string.alertdialog_button_report,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            contact(); // 聯絡方式選擇
+                                        }
+                                    }
+                            )
+                            .setPositiveButton(R.string.alertdialog_button_close,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // 空白，退出 Dialog
+                                        }
+                                    }
+                            )
+                            .show();
 
-                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_report);
-                    findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Uri uri=Uri.parse("mailto:mc.stream@reh.tw?subject=問題回報 - ToolBox 正體中文資源包");
-                            Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                            startActivity(i); // 啟動 Mail (mc.stream@reh.tw)
-                        }
-                    });
+                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
                 } else {
                     // 成功
                     btn.setEnabled(true); // 啟用按鈕
 
-                    Toast.makeText(MainActivity.this, R.string.message_successful, Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle(R.string.alertdialog_successful_title)
+                            .setIcon(R.drawable.ic_dialog_info)
+                            .setMessage(R.string.alertdialog_successful_message)
+                            .setCancelable(false)
+                            .setNegativeButton(R.string.alertdialog_button_start,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent = getPackageManager().getLaunchIntentForPackage("io.mrarm.mctoolbox");
+                                            if (intent != null) {
+                                                startActivity(intent); // 啟動 Toolbox for Minecraft: PE
+                                                Toast.makeText(getApplication(), R.string.message_open_toolbox, Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(getApplication(), R.string.message_no_install_toolbox, Toast.LENGTH_SHORT).show();
 
-                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_install_done);
-                    findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = getPackageManager().getLaunchIntentForPackage("io.mrarm.mctoolbox");
-                            if (intent != null) {
-                                startActivity(intent); // 啟動 Toolbox for Minecraft: PE
-                                Toast.makeText(getApplication(), R.string.message_open_toolbox, Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getApplication(), R.string.message_no_install_toolbox, Toast.LENGTH_SHORT).show();
+                                                Uri uri=Uri.parse("market://details?id=io.mrarm.mctoolbox");
+                                                Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                                startActivity(i); // 啟動 Google Play (io.mrarm.mctoolbox)
+                                            }
+                                        }
+                                    }
+                            )
+                            .setPositiveButton(R.string.alertdialog_button_close,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // 空白，退出 Dialog
+                                        }
+                                    }
+                            )
+                            .show();
 
-                                Uri uri=Uri.parse("market://details?id=io.mrarm.mctoolbox");
-                                Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                startActivity(i); // 啟動 Google Play (io.mrarm.mctoolbox)
-                            }
-                        }
-                    });
+                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
                 }
             }
         });
@@ -202,9 +327,31 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_delete) {
-            storage.deleteDirectory(myFile); // 刪除資料夾
-            ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
-            Toast.makeText(getApplication(), R.string.message_delete, Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alertdialog_delete_title)
+                    .setIcon(R.drawable.ic_dialog_alert)
+                    .setMessage(R.string.alertdialog_delete_message)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.alertdialog_button_ok,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    storage.deleteDirectory(myFile); // 刪除資料夾
+                                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
+                                    Toast.makeText(getApplication(), R.string.message_delete, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                    )
+                    .setPositiveButton(R.string.alertdialog_button_cancel,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 空白，退出 Dialog
+                                }
+                            }
+                    )
+                    .show();
+
             startSample();
 
             return true;
@@ -239,102 +386,7 @@ public class MainActivity extends AppCompatActivity
 
             Toast.makeText(MainActivity.this, R.string.message_open_google_play, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_contact) {
-            CharSequence[] contactList = {"FB Messenger", "Line", "Telegram", "Twitter"};
-            new AlertDialog.Builder(MainActivity.this)
-                    .setTitle(R.string.alertdialog_contact_list_title)
-                    .setIcon(R.drawable.ic_menu_contact)
-                    .setItems(contactList, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int which) {
-                            switch (which) {
-                                case 0:
-                                    Intent messenger = getPackageManager().getLaunchIntentForPackage("com.facebook.orca");
-                                    if (messenger != null) {
-                                        Uri uri=Uri.parse("fb-messenger://user/100002587292678");
-                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                        startActivity(i); // 啟動 FB Messenger APP (@GoneToneDY)
-                                    } else {
-                                        ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                                        NetworkInfo info = cManager.getActiveNetworkInfo();
-                                        if (info != null && info.isAvailable()) {
-                                            Uri uri=Uri.parse("https://www.messenger.com/t/100002587292678/");
-                                            Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                            startActivity(i); // 啟動 FB Messenger 網頁 (@GoneToneDY)
-                                        } else {
-                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
-                                        }
-                                    }
-                                    break;
-                                case 1:
-                                    Intent line = getPackageManager().getLaunchIntentForPackage("jp.naver.line.android");
-                                    if (line != null) {
-                                        Uri uri=Uri.parse("line://ti/p/RgfP0uDWKe");
-                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                        startActivity(i); // 啟動 Line APP (ID：29022716)
-                                    } else {
-                                        new AlertDialog.Builder(MainActivity.this)
-                                                .setMessage(R.string.alertdialog_message_no_install_line)
-                                                .setCancelable(false)
-                                                .setPositiveButton(R.string.alertdialog_button_yes,
-                                                        new DialogInterface.OnClickListener() {
-                                                            @Override
-                                                            public void onClick(DialogInterface dialog, int which) {
-                                                                Uri uri=Uri.parse("market://details?id=jp.naver.line.android");
-                                                                Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                                                startActivity(i); // 啟動 Google Play (jp.naver.line.android)
-                                                            }
-                                                        }
-                                                )
-                                                .setNegativeButton(R.string.alertdialog_button_no,
-                                                        new DialogInterface.OnClickListener() {
-                                                            @Override
-                                                            public void onClick(DialogInterface dialog, int which) {
-                                                                // 關閉視窗
-                                                            }
-                                                        }
-                                                )
-                                                .show();
-                                    }
-                                    break;
-                                case 2:
-                                    Intent telegram = getPackageManager().getLaunchIntentForPackage("org.telegram.messenger");
-                                    if (telegram != null) {
-                                        Uri uri=Uri.parse("tg://resolve?domain=GoneTone");
-                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                        startActivity(i); // 啟動 Telegram APP (@GoneTone)
-                                    } else {
-                                        ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                                        NetworkInfo info = cManager.getActiveNetworkInfo();
-                                        if (info != null && info.isAvailable()) {
-                                            Uri uri=Uri.parse("https://web.telegram.org/#/im?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3DGoneTone");
-                                            Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                            startActivity(i); // 啟動 Telegram 網頁 (@GoneTone)
-                                        } else {
-                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
-                                        }
-                                    }
-                                    break;
-                                case 3:
-                                    Intent twitter = getPackageManager().getLaunchIntentForPackage("com.twitter.android");
-                                    if (twitter != null) {
-                                        Uri uri=Uri.parse("twitter://user?user_id=2742134276");
-                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                        startActivity(i); // 啟動 Twitter APP (@TPGoneTone)
-                                    } else {
-                                        ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                                        NetworkInfo info = cManager.getActiveNetworkInfo();
-                                        if (info != null && info.isAvailable()) {
-                                            Uri uri=Uri.parse("https://twitter.com/TPGoneTone");
-                                            Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                            startActivity(i); // 啟動 Twitter 網頁 (@TPGoneTone)
-                                        } else {
-                                            Toast.makeText(MainActivity.this, R.string.message_no_network, Toast.LENGTH_LONG).show(); // 無網路
-                                        }
-                                    }
-                                    break;
-                            }
-                        }
-                    }).show();
+            contact(); // 聯絡方式選擇
         } else if (id == R.id.nav_mcpe_google_play) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.mojang.minecraftpe");
             if (intent != null) {

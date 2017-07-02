@@ -24,19 +24,26 @@
     <string name="button_install">Install language pack</string>
     <string name="button_re_install">Reinstall language pack</string>
     <string name="button_text_installing">Installing...</string>
-    <string name="button_text_install_done">Download done, Open Toolbox!</string>
-    <string name="button_text_report">Report the problem</string>
 
-    <string name="message_successful">Toolbox Traditional Chinese Resource Pack install is successful, please start Toolbox and apply the Resource Pack!</string>
     <string name="message_no_install_toolbox">You do not have Toolbox installed. Please download it on Google Play!</string>
-    <string name="message_open_toolbox">Open Toolbox, go to "Settings> Global Resource Pack" to apply within Traditional Chinese Resource Pack Toolbox.</string>
-    <string name="message_error">Install failed, please contact the developers!</string>
+    <string name="message_open_toolbox">Open Toolbox, go to "Settings> Global Resource Pack" to apply within Toolbox Traditional Chinese Resource Pack.</string>
     <string name="message_delete">Language pack deleted successfully!</string>
     <string name="message_open_google_play">Please help this APP rated 5 stars, thank you OuO</string>
     <string name="message_no_network">No internet connection, please check your network status</string>
 
+    <string name="alertdialog_successful_title">Successful installation</string>
+    <string name="alertdialog_successful_message">Please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
+    <string name="alertdialog_error_title">Install failed</string>
+    <string name="alertdialog_error_message">Please contact the developers!</string>
+    <string name="alertdialog_delete_title">Warning</string>
+    <string name="alertdialog_delete_message">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
     <string name="alertdialog_contact_list_title">Please select contact information</string>
-    <string name="alertdialog_message_no_install_line">You do not install \"Line\", if you want to go to Google Play installation?</string>
+    <string name="alertdialog_message_no_install_line">You do not install "Line", if you want to go to Google Play installation?</string>
     <string name="alertdialog_button_yes">Yes</string>
     <string name="alertdialog_button_no">No</string>
+    <string name="alertdialog_button_ok">Ok</string>
+    <string name="alertdialog_button_cancel">Cancel</string>
+    <string name="alertdialog_button_start">Start</string>
+    <string name="alertdialog_button_close">Close</string>
+    <string name="alertdialog_button_report">Report the problem</string>
 </resources>
