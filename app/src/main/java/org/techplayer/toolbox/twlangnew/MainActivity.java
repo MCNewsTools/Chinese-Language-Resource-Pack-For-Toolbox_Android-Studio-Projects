@@ -29,6 +29,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.sromku.simple.storage.SimpleStorage;
 import com.sromku.simple.storage.Storage;
 
@@ -82,6 +84,11 @@ public class MainActivity extends AppCompatActivity
         } else {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
         }
+
+        // Google 廣告
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         checkPermission();
     }
