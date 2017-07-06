@@ -25,6 +25,7 @@
 
     <string name="button_install">安装语言包</string>
     <string name="button_re_install">重新安装语言包</string>
+    <string name="button_text_loading">加载中...</string>
     <string name="button_text_installing">安装中...</string>
 
     <string name="message_no_install_toolbox">您未安装 Toolbox，请至 Google Play 下载！</string>
@@ -33,13 +34,14 @@
     <string name="message_open_google_play">请帮本 APP 评分为 5 星，感谢您OuO</string>
     <string name="message_no_network">无网路连接，请检察您的网路状态</string>
 
-    <string name="alertdialog_successful_title">安装成功</string>
-    <string name="alertdialog_successful_message">請啟動 Toolbox 並至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包！</string>
-    <string name="alertdialog_error_title">安装失败</string>
-    <string name="alertdialog_error_message">请联络开发人员！</string>
-    <string name="alertdialog_delete_title">警告</string>
-    <string name="alertdialog_delete_message">您确定要删除「Toolbox 正体中文资源包」吗？</string>
-    <string name="alertdialog_contact_list_title">请选择联络方式</string>
+    <string name="alertdialog_title_successful">安装成功</string>
+    <string name="alertdialog_message_successful">請啟動 Toolbox 並至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包！</string>
+    <string name="alertdialog_title_error">安装失败</string>
+    <string name="alertdialog_message_error">请联络开发人员！</string>
+    <string name="alertdialog_title_warning">警告</string>
+    <string name="alertdialog_message_delete">您确定要删除「Toolbox 正体中文资源包」吗？</string>
+    <string name="alertdialog_message_not_viewing_ad">您未看完广告，无法安装「Toolbox 正体中文资源包」。</string>
+    <string name="alertdialog_title_contact_list">请选择联络方式</string>
     <string name="alertdialog_message_no_install_line">您未安装 \"Line\"，是否要前往 Google Play 安装？</string>
     <string name="alertdialog_button_yes">是</string>
     <string name="alertdialog_button_no">否</string>

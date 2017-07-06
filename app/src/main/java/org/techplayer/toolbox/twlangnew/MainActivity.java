@@ -16,6 +16,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -29,8 +30,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.*;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+
 import com.sromku.simple.storage.SimpleStorage;
 import com.sromku.simple.storage.Storage;
 
@@ -42,12 +46,14 @@ import flipagram.assetcopylib.AssetCopier;
 import static org.techplayer.toolbox.twlangnew.R.menu.main;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
     Storage storage = SimpleStorage.getExternalStorage(); // 初始化檔案管理
 
     String myFile = "/games/com.mojang/resource_packs/toolbox-zh_TW/";
     String myPath = Environment.getExternalStorageDirectory() + myFile;
     File f = new File(myPath); // 存放路徑資料夾
+
+    private RewardedVideoAd mAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,24 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button btn = (Button) findViewById(R.id.btn_download);
+        btn.setEnabled(false); // 禁用按鈕
+        ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_loading); // 按鈕顯示加載中
+
+        // Google 廣告應用程式 ID
+        MobileAds.initialize(this, "ca-app-pub-3794226192931198~1269445465");
+
+        // Google 獎勵型影片廣告
+        mAd = MobileAds.getRewardedVideoAdInstance(this);
+        mAd.setRewardedVideoAdListener(this);
+
+        loadRewardedVideoAd(); // 加載獎勵型影片廣告
+
+        // 呼叫 Google 橫幅廣告
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -78,26 +102,218 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
+        checkPermission();
+    }
+
+    // 安裝資源包
+    private void installResourcePack() {
+        Button btn = (Button) findViewById(R.id.btn_download);
+
+        ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_installing); // 按鈕顯示安裝中
+
+        int count = -1;
+
+        try {
+            File destDir = Environment.getExternalStoragePublicDirectory(myFile);
+            destDir.mkdirs();
+            count = new AssetCopier(MainActivity.this)
+                    .withFileScanning()
+                    .copy("toolbox-zh_TW", destDir); // 要複製在 assets 內資料夾或檔案名稱
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (count == -1) {
+            // 失敗
+            btn.setEnabled(true); // 啟用按鈕
+
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alertdialog_title_error)
+                    .setIcon(R.drawable.ic_dialog_alert)
+                    .setMessage(R.string.alertdialog_message_error)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.alertdialog_button_report,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    contact(); // 聯絡方式選擇
+                                }
+                            }
+                    )
+                    .setPositiveButton(R.string.alertdialog_button_close,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 空白，退出 Dialog
+                                }
+                            }
+                    )
+                    .show();
+
+            ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+        } else {
+            // 成功
+            btn.setEnabled(true); // 啟用按鈕
+
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alertdialog_title_successful)
+                    .setIcon(R.drawable.ic_dialog_info)
+                    .setMessage(R.string.alertdialog_message_successful)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.alertdialog_button_start,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = getPackageManager().getLaunchIntentForPackage("io.mrarm.mctoolbox");
+                                    if (intent != null) {
+                                        startActivity(intent); // 啟動 Toolbox for Minecraft: PE
+                                        Toast.makeText(getApplication(), R.string.message_open_toolbox, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplication(), R.string.message_no_install_toolbox, Toast.LENGTH_SHORT).show();
+
+                                        Uri uri=Uri.parse("market://details?id=io.mrarm.mctoolbox");
+                                        Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                                        startActivity(i); // 啟動 Google Play (io.mrarm.mctoolbox)
+                                    }
+                                }
+                            }
+                    )
+                    .setPositiveButton(R.string.alertdialog_button_close,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 空白，退出 Dialog
+                                }
+                            }
+                    )
+                    .show();
+
+            ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+        }
+    }
+
+    // 預先加載獎勵型影片廣告
+    private void loadRewardedVideoAd() {
+        mAd.loadAd("ca-app-pub-3794226192931198/6315093863", new AdRequest.Builder().build());
+    }
+
+    // 獎勵型影片廣告觀看完畢執行
+    @Override
+    public void onRewarded(RewardItem reward) {
+        int amount = reward.getAmount();
+        String currency = reward.getType();
+
+        if (currency.equals("download_resource_pack") && amount >= 1) {
+            installResourcePack(); // 執行安裝資源包
+        }
+    }
+
+    // The following listener methods are optional.
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    // 獎勵型影片廣告關閉執行
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Button btn = (Button) findViewById(R.id.btn_download);
+        btn.setEnabled(false); // 禁用按鈕
+        ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_loading); // 按鈕顯示加載中
+        loadRewardedVideoAd(); // 加載獎勵型影片廣告
+
+        // 判斷資料夾不存在執行
+        if (!f.exists()) {
+            installResourcePack(); // 執行安裝資源包
+
+            /*
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alertdialog_title_warning)
+                    .setIcon(R.drawable.ic_dialog_alert)
+                    .setMessage(R.string.alertdialog_message_not_viewing_ad)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.alertdialog_button_ok,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 空白，退出 Dialog
+                                }
+                            }
+                    )
+                    .show();
+            */
+        }
+    }
+
+    // 獎勵型影片廣告無法加載執行
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int errorCode) {
+        Button btn = (Button) findViewById(R.id.btn_download);
+        btn.setEnabled(true); // 啟用按鈕
+
+        ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cManager.getActiveNetworkInfo();
+        if (info != null && info.isAvailable()) {
+            ((TextView)findViewById(R.id.btn_download)).setText("加載失敗，重試"); // 按鈕顯示加載失敗
+        } else {
+            // 判斷資料夾是否存在
+            if (!f.exists()) {
+                ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
+            } else {
+                ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+            }
+        }
+
+        findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
+            Button btn = (Button) findViewById(R.id.btn_download);
+            @Override
+            public void onClick(View v) {
+                btn.setEnabled(false); // 禁用按鈕
+
+                ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = cManager.getActiveNetworkInfo();
+                if (info != null && info.isAvailable()) {
+                    btn.setEnabled(false); // 禁用按鈕
+                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_loading); // 按鈕顯示加載中
+                    loadRewardedVideoAd(); // 加載獎勵型影片廣告
+                } else {
+                    installResourcePack(); // 執行安裝資源包
+                }
+            }
+        });
+    }
+
+    // 獎勵型影片廣告加載後執行
+    @Override
+    public void onRewardedVideoAdLoaded() {
+        Button btn = (Button) findViewById(R.id.btn_download);
+        btn.setEnabled(true); // 啟用按鈕
+
         // 判斷資料夾是否存在
         if (!f.exists()) {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
         } else {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
         }
+    }
 
-        // Google 廣告
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+    // 獎勵型影片廣告開啟時執行
+    @Override
+    public void onRewardedVideoAdOpened() {
+        storage.deleteDirectory(myFile); // 刪除資料夾
+    }
 
-        checkPermission();
+    // 獎勵型影片廣告運行時執行
+    @Override
+    public void onRewardedVideoStarted() {
+
     }
 
     // 聯絡方式選擇
     private void contact() {
         CharSequence[] contactList = {"FB Messenger", "Line", "Telegram", "Twitter"};
         new AlertDialog.Builder(MainActivity.this)
-                .setTitle(R.string.alertdialog_contact_list_title)
+                .setTitle(R.string.alertdialog_title_contact_list)
                 .setIcon(R.drawable.ic_dialog_email)
                 .setItems(contactList, new DialogInterface.OnClickListener() {
                     @Override
@@ -200,90 +416,15 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 btn.setEnabled(false); // 禁用按鈕
 
-                storage.deleteDirectory(myFile); // 刪除資料夾
-
-                ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_installing);
-
-                int count = -1;
-
-                try {
-                    File destDir = Environment.getExternalStoragePublicDirectory(myFile);
-                    destDir.mkdirs();
-                    count = new AssetCopier(MainActivity.this)
-                            .withFileScanning()
-                            .copy("toolbox-zh_TW", destDir); // 要複製在 assets 內資料夾或檔案名稱
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                if (count == -1) {
-                    // 失敗
-                    storage.deleteDirectory(myFile); // 刪除資料夾
-
-                    btn.setEnabled(true); // 啟用按鈕
-
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle(R.string.alertdialog_error_title)
-                            .setIcon(R.drawable.ic_dialog_alert)
-                            .setMessage(R.string.alertdialog_error_message)
-                            .setCancelable(false)
-                            .setNegativeButton(R.string.alertdialog_button_report,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            contact(); // 聯絡方式選擇
-                                        }
-                                    }
-                            )
-                            .setPositiveButton(R.string.alertdialog_button_close,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // 空白，退出 Dialog
-                                        }
-                                    }
-                            )
-                            .show();
-
-                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+                ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = cManager.getActiveNetworkInfo();
+                if (info != null && info.isAvailable()) {
+                    // 顯示獎勵型影片廣告
+                    if (mAd.isLoaded()) {
+                        mAd.show();
+                    }
                 } else {
-                    // 成功
-                    btn.setEnabled(true); // 啟用按鈕
-
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle(R.string.alertdialog_successful_title)
-                            .setIcon(R.drawable.ic_dialog_info)
-                            .setMessage(R.string.alertdialog_successful_message)
-                            .setCancelable(false)
-                            .setNegativeButton(R.string.alertdialog_button_start,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent intent = getPackageManager().getLaunchIntentForPackage("io.mrarm.mctoolbox");
-                                            if (intent != null) {
-                                                startActivity(intent); // 啟動 Toolbox for Minecraft: PE
-                                                Toast.makeText(getApplication(), R.string.message_open_toolbox, Toast.LENGTH_SHORT).show();
-                                            } else {
-                                                Toast.makeText(getApplication(), R.string.message_no_install_toolbox, Toast.LENGTH_SHORT).show();
-
-                                                Uri uri=Uri.parse("market://details?id=io.mrarm.mctoolbox");
-                                                Intent i=new Intent(Intent.ACTION_VIEW,uri);
-                                                startActivity(i); // 啟動 Google Play (io.mrarm.mctoolbox)
-                                            }
-                                        }
-                                    }
-                            )
-                            .setPositiveButton(R.string.alertdialog_button_close,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // 空白，退出 Dialog
-                                        }
-                                    }
-                            )
-                            .show();
-
-                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+                    installResourcePack(); // 執行安裝資源包
                 }
             }
         });
@@ -335,9 +476,9 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_delete) {
             new AlertDialog.Builder(MainActivity.this)
-                    .setTitle(R.string.alertdialog_delete_title)
+                    .setTitle(R.string.alertdialog_title_warning)
                     .setIcon(R.drawable.ic_dialog_alert)
-                    .setMessage(R.string.alertdialog_delete_message)
+                    .setMessage(R.string.alertdialog_message_delete)
                     .setCancelable(false)
                     .setNegativeButton(R.string.alertdialog_button_ok,
                             new DialogInterface.OnClickListener() {

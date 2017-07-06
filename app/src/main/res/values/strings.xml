@@ -25,6 +25,7 @@
 
     <string name="button_install">Install language pack</string>
     <string name="button_re_install">Reinstall language pack</string>
+    <string name="button_text_loading">Loading...</string>
     <string name="button_text_installing">Installing...</string>
 
     <string name="message_no_install_toolbox">You do not have Toolbox installed. Please download it on Google Play!</string>
@@ -33,13 +34,14 @@
     <string name="message_open_google_play">Please help this APP rated 5 stars, thank you OuO</string>
     <string name="message_no_network">No internet connection, please check your network status</string>
 
-    <string name="alertdialog_successful_title">Successful installation</string>
-    <string name="alertdialog_successful_message">Please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
-    <string name="alertdialog_error_title">Install failed</string>
-    <string name="alertdialog_error_message">Please contact the developers!</string>
-    <string name="alertdialog_delete_title">Warning</string>
-    <string name="alertdialog_delete_message">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
-    <string name="alertdialog_contact_list_title">Please select contact information</string>
+    <string name="alertdialog_title_successful">Successful installation</string>
+    <string name="alertdialog_message_successful">Please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
+    <string name="alertdialog_title_error">Install failed</string>
+    <string name="alertdialog_message_error">Please contact the developers!</string>
+    <string name="alertdialog_title_warning">Warning</string>
+    <string name="alertdialog_message_delete">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
+    <string name="alertdialog_message_not_viewing_ad">You have not finished watching ad, unable to install "Toolbox Traditional Chinese Resource Pack".</string>
+    <string name="alertdialog_title_contact_list">Please select contact information</string>
     <string name="alertdialog_message_no_install_line">You do not install "Line", if you want to go to Google Play installation?</string>
     <string name="alertdialog_button_yes">Yes</string>
     <string name="alertdialog_button_no">No</string>
