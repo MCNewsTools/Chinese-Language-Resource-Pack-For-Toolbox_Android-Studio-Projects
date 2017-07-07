@@ -36,6 +36,8 @@
 
     <string name="alertdialog_title_successful">安裝成功</string>
     <string name="alertdialog_message_successful">請啟動 Toolbox 並至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包！</string>
+    <string name="alertdialog_message_exception_successful">您雖然跳過廣告 (廣告是我們的收入來源)，但我們還是讓您安裝成功，請啟動 Toolbox 並至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包！</string>
+    <string name="alertdialog_message_no_network_successful">無網路無法加載廣告 (廣告是我們的收入來源)，但我們還是讓您安裝成功，請啟動 Toolbox 並至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包！</string>
     <string name="alertdialog_title_error">安裝失敗</string>
     <string name="alertdialog_message_error">請聯絡開發人員！</string>
     <string name="alertdialog_title_warning">警告</string>
@@ -50,4 +52,5 @@
     <string name="alertdialog_button_start">啟動</string>
     <string name="alertdialog_button_close">關閉</string>
     <string name="alertdialog_button_report">回報問題</string>
+    <string name="button_load_failed_retry">加載失敗，重試</string>
 </resources>

@@ -36,6 +36,8 @@
 
     <string name="alertdialog_title_successful">Successful installation</string>
     <string name="alertdialog_message_successful">Please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
+    <string name="alertdialog_message_exception_successful">Although you skip ad (ad is our revenue source), but we still allows you to install success, please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
+    <string name="alertdialog_message_no_network_successful">No network can not load ad (ad is our revenue source), but we still allows you to install success, please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
     <string name="alertdialog_title_error">Install failed</string>
     <string name="alertdialog_message_error">Please contact the developers!</string>
     <string name="alertdialog_title_warning">Warning</string>
@@ -50,4 +52,5 @@
     <string name="alertdialog_button_start">Start</string>
     <string name="alertdialog_button_close">Close</string>
     <string name="alertdialog_button_report">Report the problem</string>
+    <string name="button_load_failed_retry">加載失敗，重試</string>
 </resources>

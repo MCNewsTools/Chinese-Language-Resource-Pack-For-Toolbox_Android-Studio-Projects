@@ -16,7 +16,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
-import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     // 安裝資源包
-    private void installResourcePack() {
+    private void installResourcePack(int message) {
         Button btn = (Button) findViewById(R.id.btn_download);
 
         ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_installing); // 按鈕顯示安裝中
@@ -158,7 +157,7 @@ public class MainActivity extends AppCompatActivity
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.alertdialog_title_successful)
                     .setIcon(R.drawable.ic_dialog_info)
-                    .setMessage(R.string.alertdialog_message_successful)
+                    .setMessage(message)
                     .setCancelable(false)
                     .setNegativeButton(R.string.alertdialog_button_start,
                             new DialogInterface.OnClickListener() {
@@ -204,7 +203,7 @@ public class MainActivity extends AppCompatActivity
         String currency = reward.getType();
 
         if (currency.equals("download_resource_pack") && amount >= 1) {
-            installResourcePack(); // 執行安裝資源包
+            installResourcePack(R.string.alertdialog_message_successful); // 執行安裝資源包
         }
     }
 
@@ -224,7 +223,7 @@ public class MainActivity extends AppCompatActivity
 
         // 判斷資料夾不存在執行
         if (!f.exists()) {
-            installResourcePack(); // 執行安裝資源包
+            installResourcePack(R.string.alertdialog_message_exception_successful); // 執行安裝資源包
 
             /*
             new AlertDialog.Builder(MainActivity.this)
@@ -254,7 +253,7 @@ public class MainActivity extends AppCompatActivity
         ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cManager.getActiveNetworkInfo();
         if (info != null && info.isAvailable()) {
-            ((TextView)findViewById(R.id.btn_download)).setText("加載失敗，重試"); // 按鈕顯示加載失敗
+            ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_load_failed_retry); // 按鈕顯示加載失敗
         } else {
             // 判斷資料夾是否存在
             if (!f.exists()) {
@@ -277,7 +276,7 @@ public class MainActivity extends AppCompatActivity
                     ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_loading); // 按鈕顯示加載中
                     loadRewardedVideoAd(); // 加載獎勵型影片廣告
                 } else {
-                    installResourcePack(); // 執行安裝資源包
+                    installResourcePack(R.string.alertdialog_message_no_network_successful); // 執行安裝資源包
                 }
             }
         });
@@ -416,15 +415,9 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 btn.setEnabled(false); // 禁用按鈕
 
-                ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo info = cManager.getActiveNetworkInfo();
-                if (info != null && info.isAvailable()) {
-                    // 顯示獎勵型影片廣告
-                    if (mAd.isLoaded()) {
-                        mAd.show();
-                    }
-                } else {
-                    installResourcePack(); // 執行安裝資源包
+                // 顯示獎勵型影片廣告
+                if (mAd.isLoaded()) {
+                    mAd.show();
                 }
             }
         });
