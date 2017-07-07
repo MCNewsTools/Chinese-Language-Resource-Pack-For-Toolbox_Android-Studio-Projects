@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
     Storage storage = SimpleStorage.getExternalStorage(); // 初始化檔案管理
 
-    String myFile = "/games/com.mojang/resource_packs/toolbox-zh_TW/";
-    String myPath = Environment.getExternalStorageDirectory() + myFile;
-    File f = new File(myPath); // 存放路徑資料夾
+    String resourcePackFile = "/games/com.mojang/resource_packs/toolbox-zh_TW/";
+    String resourcePackPath = Environment.getExternalStorageDirectory() + resourcePackFile;
+    File resourcePackF = new File(resourcePackPath); // 存放路徑資料夾
 
     private RewardedVideoAd mAd;
 
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity
         int count = -1;
 
         try {
-            File destDir = Environment.getExternalStoragePublicDirectory(myFile);
+            File destDir = resourcePackF;
             destDir.mkdirs();
             count = new AssetCopier(MainActivity.this)
                     .withFileScanning()
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity
         loadRewardedVideoAd(); // 加載獎勵型影片廣告
 
         // 判斷資料夾不存在執行
-        if (!f.exists()) {
+        if (!resourcePackF.exists()) {
             installResourcePack(R.string.alertdialog_message_exception_successful); // 執行安裝資源包
 
             /*
@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_load_failed_retry); // 按鈕顯示加載失敗
         } else {
             // 判斷資料夾是否存在
-            if (!f.exists()) {
+            if (!resourcePackF.exists()) {
                 ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
             } else {
                 ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity
         btn.setEnabled(true); // 啟用按鈕
 
         // 判斷資料夾是否存在
-        if (!f.exists()) {
+        if (!resourcePackF.exists()) {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
         } else {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
@@ -299,7 +299,7 @@ public class MainActivity extends AppCompatActivity
     // 獎勵型影片廣告開啟時執行
     @Override
     public void onRewardedVideoAdOpened() {
-        storage.deleteDirectory(myFile); // 刪除資料夾
+        storage.deleteDirectory(resourcePackFile); // 刪除資料夾
     }
 
     // 獎勵型影片廣告運行時執行
@@ -477,7 +477,7 @@ public class MainActivity extends AppCompatActivity
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    storage.deleteDirectory(myFile); // 刪除資料夾
+                                    storage.deleteDirectory(resourcePackFile); // 刪除資料夾
                                     ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
                                     Toast.makeText(getApplication(), R.string.message_delete, Toast.LENGTH_SHORT).show();
                                 }
