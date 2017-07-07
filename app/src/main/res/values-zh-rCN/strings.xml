@@ -25,6 +25,7 @@
 
     <string name="button_install">安装语言包</string>
     <string name="button_re_install">重新安装语言包</string>
+    <string name="button_load_failed_retry">加载失败，重试</string>
     <string name="button_text_loading">加载中...</string>
     <string name="button_text_installing">安装中...</string>
 
@@ -52,5 +53,4 @@
     <string name="alertdialog_button_start">啟動</string>
     <string name="alertdialog_button_close">關閉</string>
     <string name="alertdialog_button_report">回报问题</string>
-    <string name="button_load_failed_retry">加載失敗，重試</string>
 </resources>
