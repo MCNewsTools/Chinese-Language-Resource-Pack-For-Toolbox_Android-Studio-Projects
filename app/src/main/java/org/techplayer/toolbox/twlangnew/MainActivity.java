@@ -216,11 +216,6 @@ public class MainActivity extends AppCompatActivity
     // 獎勵型影片廣告關閉執行
     @Override
     public void onRewardedVideoAdClosed() {
-        Button btn = (Button) findViewById(R.id.btn_download);
-        btn.setEnabled(false); // 禁用按鈕
-        ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_loading); // 按鈕顯示加載中
-        loadRewardedVideoAd(); // 加載獎勵型影片廣告
-
         // 判斷資料夾不存在執行
         if (!resourcePackF.exists()) {
             installResourcePack(R.string.alertdialog_message_exception_successful); // 執行安裝資源包
@@ -242,6 +237,11 @@ public class MainActivity extends AppCompatActivity
                     .show();
             */
         }
+
+        Button btn = (Button) findViewById(R.id.btn_download);
+        btn.setEnabled(false); // 禁用按鈕
+        ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_text_loading); // 按鈕顯示加載中
+        loadRewardedVideoAd(); // 加載獎勵型影片廣告
     }
 
     // 獎勵型影片廣告無法加載執行
