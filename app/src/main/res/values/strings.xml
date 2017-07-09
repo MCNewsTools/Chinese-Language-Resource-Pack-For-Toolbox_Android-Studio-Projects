@@ -44,6 +44,7 @@
     <string name="alertdialog_title_warning">Warning</string>
     <string name="alertdialog_message_delete">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
     <string name="alertdialog_message_not_viewing_ad">You have not finished watching ad, unable to install "Toolbox Traditional Chinese Resource Pack".</string>
+    <string name="alertdialog_message_ad_blocking">The system detects that your device block the ad, ad is our source of income to sustain the operation of the service, turn off the ad block and restart the App.</string>
     <string name="alertdialog_title_contact_list">Please select contact information</string>
     <string name="alertdialog_message_no_install_line">You do not install "Line", if you want to go to Google Play installation?</string>
     <string name="alertdialog_button_yes">Yes</string>

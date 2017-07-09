@@ -37,8 +37,11 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.sromku.simple.storage.SimpleStorage;
 import com.sromku.simple.storage.Storage;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import flipagram.assetcopylib.AssetCopier;
 
@@ -100,6 +103,38 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+        // 偵測是否阻擋廣告
+        BufferedReader in = null;
+        try
+        {
+            in = new BufferedReader(new InputStreamReader(new FileInputStream("/etc/hosts"))); // 讀取 hosts 文件
+            String line;
+
+            Intent adguard = getPackageManager().getLaunchIntentForPackage("com.adguard.android"); // 廣告阻擋軟體：Adguard
+
+            while ((line = in.readLine()) != null) {
+                if (line.contains("admob") && !line.matches("^ *#") || adguard != null) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle(R.string.alertdialog_title_warning)
+                            .setIcon(R.drawable.ic_dialog_alert)
+                            .setMessage(R.string.alertdialog_message_ad_blocking)
+                            .setCancelable(false)
+                            .setNegativeButton(R.string.alertdialog_button_ok,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            finish(); // 退出 App
+                                        }
+                                    }
+                            )
+                            .show();
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         checkPermission();
     }

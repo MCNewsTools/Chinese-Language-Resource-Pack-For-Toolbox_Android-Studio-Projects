@@ -44,6 +44,7 @@
     <string name="alertdialog_title_warning">警告</string>
     <string name="alertdialog_message_delete">您確定要刪除「Toolbox 正體中文資源包」嗎？</string>
     <string name="alertdialog_message_not_viewing_ad">您未看完廣告，無法安裝「Toolbox 正體中文資源包」。</string>
+    <string name="alertdialog_message_ad_blocking">系統偵測到您的裝置阻擋了廣告，廣告是我們的收入來源，以維持服務運作，請先關閉廣告阻擋後再重新啟動 App。</string>
     <string name="alertdialog_title_contact_list">請選擇聯絡方式</string>
     <string name="alertdialog_message_no_install_line">您未安裝 \"Line\"，是否要前往 Google Play 安裝？</string>
     <string name="alertdialog_button_yes">是</string>
