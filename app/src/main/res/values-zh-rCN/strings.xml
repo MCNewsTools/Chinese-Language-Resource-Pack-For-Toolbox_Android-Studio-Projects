@@ -25,6 +25,7 @@
 
     <string name="button_install">安装语言包</string>
     <string name="button_re_install">重新安装语言包</string>
+    <string name="button_update">更新语言包</string>
     <string name="button_load_failed_retry">加载失败，重试</string>
     <string name="button_text_loading">加载中...</string>
     <string name="button_text_installing">安装中...</string>

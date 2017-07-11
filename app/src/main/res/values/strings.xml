@@ -25,6 +25,7 @@
 
     <string name="button_install">Install language pack</string>
     <string name="button_re_install">Reinstall language pack</string>
+    <string name="button_update">Update language pack</string>
     <string name="button_load_failed_retry">Load failed, retry</string>
     <string name="button_text_loading">Loading...</string>
     <string name="button_text_installing">Installing...</string>

@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity
     String resourcePackPath = Environment.getExternalStorageDirectory() + resourcePackFile;
     File resourcePackF = new File(resourcePackPath); // 存放路徑資料夾
 
+    String CurrentVersion = "4.3.0"; // 目前資源包版本
+
     private RewardedVideoAd mAd;
 
     @Override
@@ -188,6 +190,8 @@ public class MainActivity extends AppCompatActivity
             // 成功
             btn.setEnabled(true); // 啟用按鈕
 
+            storage.createFile(resourcePackFile, "version.txt", CurrentVersion); // 寫入檔案紀錄資源包版本
+
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.alertdialog_title_successful)
                     .setIcon(R.drawable.ic_dialog_info)
@@ -293,7 +297,13 @@ public class MainActivity extends AppCompatActivity
             if (!resourcePackF.exists()) {
                 ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
             } else {
-                ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+                // 讀取版本紀錄並判斷
+                String versionRecord = storage.readTextFile(resourcePackFile, "version.txt");
+                if (!versionRecord.equals(CurrentVersion)) {
+                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_update); // 按鈕顯示更新
+                } else {
+                    ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+                }
             }
         }
 
@@ -326,7 +336,13 @@ public class MainActivity extends AppCompatActivity
         if (!resourcePackF.exists()) {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_install); // 按鈕顯示安裝
         } else {
-            ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+            // 讀取版本紀錄並判斷
+            String versionRecord = storage.readTextFile(resourcePackFile, "version.txt");
+            if (!versionRecord.equals(CurrentVersion)) {
+                ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_update); // 按鈕顯示更新
+            } else {
+                ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_re_install); // 按鈕顯示重新安裝
+            }
         }
     }
 
