@@ -84,10 +84,25 @@ toolbox.menu.cheats.player.phase=穿牆
 toolbox.menu.cheats.player.auto_walk=自動行走
 toolbox.menu.cheats.player.immortality=不朽
 toolbox.menu.cheats.player.high_jump=跳兩個方塊高
+toolbox.menu.cheats.player.one_tap_stack=One-tap stack
 toolbox.menu.cheats.combat=戰鬥
 toolbox.menu.cheats.combat.killaura=範圍自動打 (只限生物)
 toolbox.menu.cheats.combat.instakill=秒殺
 toolbox.menu.cheats.combat.auto_leave=當剩下 8 顆心時離開
+
+toolbox.menu.rapid_build=快速建造
+toolbox.menu.rapid_build.enable=啟用快速建造
+toolbox.menu.rapid_build.type=類型
+toolbox.menu.rapid_build.selection.none=無
+toolbox.menu.rapid_build.selection.cuboid=長方體
+toolbox.menu.rapid_build.selection.sphere=球體
+toolbox.menu.rapid_build.selection.ellipsoid=橢球體
+toolbox.menu.rapid_build.selection.cylinder=圓柱體
+toolbox.menu.rapid_build.selection.polygon=多邊形
+toolbox.menu.rapid_build.selection.paste=貼上
+toolbox.menu.rapid_build.replace_blocks=替換方塊
+toolbox.menu.rapid_build.render_selections=渲染選擇
+toolbox.menu.rapid_build.show_tip=顯示提示
 
 ## 以下為舊版翻譯
 Categories=分類

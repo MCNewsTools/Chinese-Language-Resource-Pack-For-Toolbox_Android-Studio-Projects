@@ -34,9 +34,6 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
-import com.sromku.simple.storage.SimpleStorage;
-import com.sromku.simple.storage.Storage;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,6 +41,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import flipagram.assetcopylib.AssetCopier;
+import com.sromku.simple.storage.SimpleStorage;
+import com.sromku.simple.storage.Storage;
 
 import static org.techplayer.toolbox.twlangnew.R.menu.main;
 
