@@ -292,6 +292,29 @@ public class MainActivity extends AppCompatActivity
         NetworkInfo info = cManager.getActiveNetworkInfo();
         if (info != null && info.isAvailable()) {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_load_failed_retry); // 按鈕顯示加載失敗
+
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alertdialog_title_warning)
+                    .setIcon(R.drawable.ic_dialog_alert)
+                    .setMessage(R.string.alertdialog_message_ad_load_failed)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.alertdialog_button_yes,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    installResourcePack(R.string.alertdialog_message_exception_successful); // 執行安裝資源包
+                                }
+                            }
+                    )
+                    .setPositiveButton(R.string.alertdialog_button_no,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 空白，退出 Dialog
+                                }
+                            }
+                    )
+                    .show();
         } else {
             // 判斷資料夾是否存在
             if (!resourcePackF.exists()) {

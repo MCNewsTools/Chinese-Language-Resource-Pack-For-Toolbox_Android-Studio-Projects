@@ -44,6 +44,7 @@
     <string name="alertdialog_message_error">Please contact the developers!</string>
     <string name="alertdialog_title_warning">Warning</string>
     <string name="alertdialog_message_delete">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
+    <string name="alertdialog_message_ad_load_failed">Ad load failed (ad is our revenue source), do you want to skip the ad is loaded directly install language pack?</string>
     <string name="alertdialog_message_not_viewing_ad">You have not finished watching ad, unable to install "Toolbox Traditional Chinese Resource Pack".</string>
     <string name="alertdialog_message_ad_blocking">The system detects that your device block the ad, ad is our source of income to sustain the operation of the service, turn off the ad block and restart the App.</string>
     <string name="alertdialog_title_contact_list">Please select contact information</string>
