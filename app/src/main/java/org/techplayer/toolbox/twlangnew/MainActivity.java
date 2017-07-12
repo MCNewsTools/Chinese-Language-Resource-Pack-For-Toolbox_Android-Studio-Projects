@@ -105,38 +105,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-        // 偵測是否阻擋廣告
-        BufferedReader in = null;
-        try
-        {
-            in = new BufferedReader(new InputStreamReader(new FileInputStream("/etc/hosts"))); // 讀取 hosts 文件
-            String line;
-
-            Intent adguard = getPackageManager().getLaunchIntentForPackage("com.adguard.android"); // 廣告阻擋軟體：Adguard
-
-            while ((line = in.readLine()) != null) {
-                if (line.contains("admob") && !line.matches("^ *#") || adguard != null) {
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle(R.string.alertdialog_title_warning)
-                            .setIcon(R.drawable.ic_dialog_alert)
-                            .setMessage(R.string.alertdialog_message_ad_blocking)
-                            .setCancelable(false)
-                            .setNegativeButton(R.string.alertdialog_button_ok,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            finish(); // 退出 App
-                                        }
-                                    }
-                            )
-                            .show();
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         checkPermission();
     }
 
@@ -229,6 +197,64 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    // 如果廣告加載失敗，偵測是否阻擋廣告，沒有就顯示加載失敗訊息
+    private void adBlockDetect() {
+        BufferedReader in = null;
+        try
+        {
+            in = new BufferedReader(new InputStreamReader(new FileInputStream("/etc/hosts"))); // 讀取 hosts 文件
+            String line;
+
+            Intent adguard = getPackageManager().getLaunchIntentForPackage("com.adguard.android"); // 廣告阻擋軟體：Adguard
+
+            while ((line = in.readLine()) != null) {
+                if (line.contains("admob") && !line.matches("^ *#") || adguard != null) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle(R.string.alertdialog_title_warning)
+                            .setIcon(R.drawable.ic_dialog_alert)
+                            .setMessage(R.string.alertdialog_message_ad_blocking)
+                            .setCancelable(false)
+                            .setNegativeButton(R.string.alertdialog_button_ok,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            finish(); // 退出 App
+                                        }
+                                    }
+                            )
+                            .show();
+                    break;
+                } else {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle(R.string.alertdialog_title_warning)
+                            .setIcon(R.drawable.ic_dialog_alert)
+                            .setMessage(R.string.alertdialog_message_ad_load_failed)
+                            .setCancelable(false)
+                            .setNegativeButton(R.string.alertdialog_button_yes,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            installResourcePack(R.string.alertdialog_message_exception_successful); // 執行安裝資源包
+                                        }
+                                    }
+                            )
+                            .setPositiveButton(R.string.alertdialog_button_no,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // 空白，退出 Dialog
+                                        }
+                                    }
+                            )
+                            .show();
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     // 預先加載獎勵型影片廣告
     private void loadRewardedVideoAd() {
         mAd.loadAd("ca-app-pub-3794226192931198/6315093863", new AdRequest.Builder().build());
@@ -293,28 +319,7 @@ public class MainActivity extends AppCompatActivity
         if (info != null && info.isAvailable()) {
             ((TextView)findViewById(R.id.btn_download)).setText(R.string.button_load_failed_retry); // 按鈕顯示加載失敗
 
-            new AlertDialog.Builder(MainActivity.this)
-                    .setTitle(R.string.alertdialog_title_warning)
-                    .setIcon(R.drawable.ic_dialog_alert)
-                    .setMessage(R.string.alertdialog_message_ad_load_failed)
-                    .setCancelable(false)
-                    .setNegativeButton(R.string.alertdialog_button_yes,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    installResourcePack(R.string.alertdialog_message_exception_successful); // 執行安裝資源包
-                                }
-                            }
-                    )
-                    .setPositiveButton(R.string.alertdialog_button_no,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // 空白，退出 Dialog
-                                }
-                            }
-                    )
-                    .show();
+            adBlockDetect(); // 如果廣告加載失敗，偵測是否阻擋廣告，沒有就顯示加載失敗訊息
         } else {
             // 判斷資料夾是否存在
             if (!resourcePackF.exists()) {
