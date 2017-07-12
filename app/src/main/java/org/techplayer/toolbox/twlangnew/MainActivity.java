@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity
         mAd = MobileAds.getRewardedVideoAdInstance(this);
         mAd.setRewardedVideoAdListener(this);
 
-        loadRewardedVideoAd(); // 加載獎勵型影片廣告
-
         // 呼叫 Google 橫幅廣告
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -487,6 +485,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void startSample() {
+        loadRewardedVideoAd(); // 加載獎勵型影片廣告
+
         findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
             Button btn = (Button) findViewById(R.id.btn_download);
             @Override
@@ -501,6 +501,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    // 檢查權限
     private void checkPermission() {
         final String permission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
         int permissionCheck = ContextCompat.checkSelfPermission(this, permission);
@@ -509,7 +510,6 @@ public class MainActivity extends AppCompatActivity
             ActivityCompat.requestPermissions(this, new String[]{permission}, 0);
             return;
         }
-        startSample();
     }
 
     @Override
@@ -517,6 +517,21 @@ public class MainActivity extends AppCompatActivity
         if (requestCode != 0) return;
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             startSample();
+        } else {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alertdialog_title_warning)
+                    .setIcon(R.drawable.ic_dialog_alert)
+                    .setMessage(R.string.alertdialog_message_authorization)
+                    .setCancelable(false)
+                    .setNegativeButton(R.string.alertdialog_button_ok,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    checkPermission(); // 檢查權限
+                                }
+                            }
+                    )
+                    .show();
         }
     }
 

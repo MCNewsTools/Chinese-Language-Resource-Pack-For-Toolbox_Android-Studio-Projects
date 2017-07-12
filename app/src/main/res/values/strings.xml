@@ -43,6 +43,7 @@
     <string name="alertdialog_title_error">Install failed</string>
     <string name="alertdialog_message_error">Please contact the developers!</string>
     <string name="alertdialog_title_warning">Warning</string>
+    <string name="alertdialog_message_authorization">You must authorize the app to access the device file, the function before normal use.</string>
     <string name="alertdialog_message_delete">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
     <string name="alertdialog_message_ad_load_failed">Ad load failed (ad is our revenue source), do you want to skip the ad is loaded directly install language pack?</string>
     <string name="alertdialog_message_not_viewing_ad">You have not finished watching ad, unable to install "Toolbox Traditional Chinese Resource Pack".</string>

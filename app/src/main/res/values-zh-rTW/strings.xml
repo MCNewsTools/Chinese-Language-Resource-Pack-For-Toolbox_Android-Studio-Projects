@@ -43,6 +43,7 @@
     <string name="alertdialog_title_error">安裝失敗</string>
     <string name="alertdialog_message_error">請聯絡開發人員！</string>
     <string name="alertdialog_title_warning">警告</string>
+    <string name="alertdialog_message_authorization">您必須授權本應用程式存取裝置檔案的權限，功能才可正常使用。</string>
     <string name="alertdialog_message_delete">您確定要刪除「Toolbox 正體中文資源包」嗎？</string>
     <string name="alertdialog_message_ad_load_failed">廣告加載失敗 (廣告是我們的收入來源)，您是否要跳過加載廣告直接安裝語言包？</string>
     <string name="alertdialog_message_not_viewing_ad">您未看完廣告，無法安裝「Toolbox 正體中文資源包」。</string>
