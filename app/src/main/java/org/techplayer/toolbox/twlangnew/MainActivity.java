@@ -509,6 +509,8 @@ public class MainActivity extends AppCompatActivity
         if (permissionCheck != PermissionChecker.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{permission}, 0);
             return;
+        } else {
+            startSample();
         }
     }
 
