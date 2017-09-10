@@ -57,6 +57,7 @@ toolbox.menu.inventory.menu=庫存選單
 toolbox.menu.inventory.quick_add=快速添加
 toolbox.menu.inventory.find=查詢任何項目
 toolbox.menu.inventory.repair=修復
+toolbox.menu.inventory.preset.diamond=全鑽石物品集
 
 toolbox.menu.mods=模組
 toolbox.menu.mods.settings=模組設定
@@ -100,6 +101,7 @@ toolbox.menu.rapid_build.selection.ellipsoid=橢球體
 toolbox.menu.rapid_build.selection.cylinder=圓柱體
 toolbox.menu.rapid_build.selection.polygon=多邊形
 toolbox.menu.rapid_build.selection.paste=貼上
+toolbox.menu.rapid_build.copy=複製
 toolbox.menu.rapid_build.replace_blocks=替換方塊
 toolbox.menu.rapid_build.render_selections=渲染選擇
 toolbox.menu.rapid_build.show_tip=顯示提示
