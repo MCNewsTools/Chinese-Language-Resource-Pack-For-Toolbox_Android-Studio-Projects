@@ -2,16 +2,16 @@
    "format_version" : 1,
    "header" : {
       "description" : "§b添加正體中文至您的 §6Toolbox §b模組\nBy.§a旋風之音 GoneTone",
-      "name" : "Toolbox 正體中文語言包 v4.3.2",
-      "uuid" : "128aa3f1-f5f7-4613-9807-ed510fd64e70",
-      "version" : [ 4, 3, 2 ]
+      "name" : "Toolbox 正體中文語言包 v4.3.6.5",
+      "uuid" : "0d670e50-8aac-60a9-dfdf-2ed14422678c",
+      "version" : [ 4, 3, 6 ]
    },
    "modules" : [
       {
          "description" : "§b添加正體中文至您的 §6Toolbox §b模組\nBy.§a旋風之音 GoneTone",
          "type" : "resources",
-         "uuid" : "21e7a602-0d09-44d1-9f0c-6b57c2f5c1c6",
-         "version" : [ 4, 3, 2 ]
+         "uuid" : "896b506f-4383-d766-691b-704a8a2547b1",
+         "version" : [ 4, 3, 6 ]
       }
    ]
 }

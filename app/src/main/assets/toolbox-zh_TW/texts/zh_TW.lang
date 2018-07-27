@@ -21,6 +21,7 @@ toolbox.menu.player.no_clip=旁觀者模式
 toolbox.menu.player.level=等級
 toolbox.menu.player.set_max=設定最大
 toolbox.menu.player.sprint=自動衝刺
+toolbox.menu.player.debug_info=顯示除錯訊息
 
 toolbox.menu.world=世界
 toolbox.menu.world.menu=世界選單
@@ -57,7 +58,7 @@ toolbox.menu.inventory.menu=庫存選單
 toolbox.menu.inventory.quick_add=快速添加
 toolbox.menu.inventory.find=查詢任何項目
 toolbox.menu.inventory.repair=修復
-toolbox.menu.inventory.preset.diamond=全鑽石物品集
+toolbox.menu.inventory.preset.diamond=全套鑽石物品
 
 toolbox.menu.mods=模組
 toolbox.menu.mods.settings=模組設定
@@ -74,22 +75,22 @@ toolbox.menu.mods.minimap.waypoints=顯示航點圖標
 toolbox.menu.mods.minimap.scale=小地圖尺寸
 toolbox.menu.mods.minimap.radius=小地圖半徑
 toolbox.menu.mods.waypoints=顯示航點
-toolbox.menu.mods.treecapitator=啟用 TreeCapitator (快速砍樹)
+toolbox.menu.mods.treecapitator=啟用快速砍樹
 toolbox.menu.mods.armor_hud=顯示裝備耐久度
 toolbox.menu.mods.health_bars=顯示血量條
 
 toolbox.menu.cheats=作弊
 toolbox.menu.cheats.settings=作弊設定
 toolbox.menu.cheats.player=玩家
-toolbox.menu.cheats.player.phase=穿牆
 toolbox.menu.cheats.player.auto_walk=自動行走
 toolbox.menu.cheats.player.immortality=不朽
+toolbox.menu.cheats.player.tap_teleport=點擊傳送
 toolbox.menu.cheats.player.high_jump=跳兩個方塊高
-toolbox.menu.cheats.player.one_tap_stack=One-tap stack
+toolbox.menu.cheats.player.one_tap_stack=點擊一下放入一組方塊
 toolbox.menu.cheats.combat=戰鬥
-toolbox.menu.cheats.combat.killaura=範圍自動打 (只限生物)
+toolbox.menu.cheats.combat.killaura=範圍自動攻擊 (只限生物)
 toolbox.menu.cheats.combat.instakill=秒殺
-toolbox.menu.cheats.combat.auto_leave=當剩下 8 顆心時離開
+toolbox.menu.cheats.combat.auto_leave=當血量少於 8 顆心時離開
 
 toolbox.menu.rapid_build=快速建造
 toolbox.menu.rapid_build.enable=啟用快速建造
@@ -105,6 +106,8 @@ toolbox.menu.rapid_build.copy=複製
 toolbox.menu.rapid_build.replace_blocks=替換方塊
 toolbox.menu.rapid_build.render_selections=渲染選擇
 toolbox.menu.rapid_build.show_tip=顯示提示
+
+tile.luckyblock.name=幸運方塊
 
 ## 以下為舊版翻譯
 Categories=分類
@@ -181,7 +184,7 @@ Enable minimap=啟用小地圖
 Draw waypoints icons=顯示航點圖標
 Minimap scale=小地圖尺寸
 Minimap radius=小地圖半徑
-Enable TreeCapitator=啟用 TreeCapitator (快速砍樹)
+Enable TreeCapitator=啟用快速砍樹
 Show armor hud=顯示裝備耐久度
 Render health bars=顯示血量條
 
@@ -192,6 +195,6 @@ Automatically walk=自動行走
 Immortality=不朽
 2 blocks high jump=跳兩個方塊高
 Combat=戰鬥
-Killaura (Mobs only)=範圍自動打 (只限生物)
+Killaura (Mobs only)=範圍自動攻擊 (只限生物)
 Instakill=秒殺
 AutoLeave=自動離開
