@@ -280,7 +280,7 @@ public class MainActivity extends AppCompatActivity
             ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo info = cManager.getActiveNetworkInfo();
             if (info != null && info.isAvailable()) {
-                Uri uri = Uri.parse("https://github.com/MCNewsTools/UIPack-install-for-mcbe_StudioProjects");
+                Uri uri = Uri.parse("https://github.com/MCNewsTools/Chinese-Language-Resource-Pack-For-Toolbox_Android-Studio-Projects");
                 Intent i = new Intent(Intent.ACTION_VIEW, uri);
                 if (i.resolveActivity(getPackageManager()) != null) {
                     startActivity(i); // 啟動 GitHub 網頁專案頁
