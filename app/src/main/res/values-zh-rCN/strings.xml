@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">正体中文资源包 For Toolbox</string>
-    <string name="app_author">By.旋风之音 GoneTone</string>
-
-    <string name="banner_ad_unit_id">ca-app-pub-3794226192931198/2746178669</string>
+    <string name="app_name">中文语言资源包 For Toolbox</string>
+    <string name="app_author">By.旋風之音 GoneTone</string>
 
     <string name="navigation_drawer_open">开启导航栏</string>
     <string name="navigation_drawer_close">关闭导航栏</string>
 
     <string name="nav_google_play">前往 Google Play</string>
-    <string name="nav_contact">联络开发人员</string>
+    <string name="nav_website">前往开发人员网站</string>
     <string name="nav_title_must_install">必须安装的 App</string>
-    <string name="nav_mcpe">Minecraft: Pocket Edition</string>
+    <string name="nav_mcpe">Minecraft: Bedrock Edition</string>
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
     <string name="nav_title_about">关于</string>
+    <string name="nav_developer_facebook">开发人员 Facebook</string>
+    <string name="nav_developer_twitter">开发人员 Twitter</string>
+    <string name="nav_developer_discord">开发人员 Discord 群组</string>
+    <string name="nav_title_opensource">开源</string>
     <string name="nav_github_source">此项目开源至 GitHub</string>
 
-    <string name="action_delete">删除资源包</string>
+    <string name="action_delete">删除「Toolbox 中文语言包」</string>
     <string name="action_share">分享此 APP</string>
 
-    <string name="text_description">将您的 Toolbox 模组新增正体中文！\n\n请点击下方按钮安装资源包，完成后请启动 Toolbox 并于「设置 > 全球资源包」内套用。</string>
-    <string name="text_share_to">分享至...</string>
-    <string name="text_share_body">立刻下载「正体中文资源包 For Toolbox」，让您的「Toolbox 模组」有正体中文语言！</string>
+    <string name="text_description">将您的 Toolbox 模组新增中文语言！\n\n请点击下方按钮安装资源包，完成后请启动 Toolbox 并于「设置 > 全局资源」内套用。</string>
+    <string name="text_share_to">分享至&#8230;</string>
+    <string name="text_share_body">立刻下载「中文语言资源包 For Toolbox」，让您的「Toolbox 模组」有中文语言！</string>
 
-    <string name="button_install">安装语言包</string>
-    <string name="button_re_install">重新安装语言包</string>
-    <string name="button_update">更新语言包</string>
-    <string name="button_load_failed_retry">加载失败，重试</string>
-    <string name="button_text_loading">加载中...</string>
-    <string name="button_text_installing">安装中...</string>
+    <string name="button_install">安装「Toolbox 中文语言包」</string>
+    <string name="button_re_install">重新安装「Toolbox 中文语言包」</string>
+    <string name="button_update">更新「Toolbox 中文语言包」 - %s</string>
+    <string name="button_text_loading">加载中&#8230;</string>
+    <string name="button_text_waiting_installation">等待安装中&#8230;</string>
+    <string name="button_text_verify_permissions">验证权限中&#8230;</string>
 
-    <string name="message_no_install_toolbox">您未安装 Toolbox，请至 Google Play 下载！</string>
-    <string name="message_open_toolbox">已开启 Toolbox，请至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包。</string>
-    <string name="message_delete">语言包删除成功！</string>
-    <string name="message_open_google_play">请帮本 APP 评分为 5 星，感谢您OuO</string>
-    <string name="message_no_network">无网路连接，请检察您的网路状态</string>
+    <string name="message_no_install_mcbe">「Minecraft (BE)」未安装，请至 Google Play 下载！</string>
+    <string name="message_no_install_toolbox">「Toolbox for Minecraft: PE」未安装，请至 Google Play 下载！</string>
+    <string name="message_open_toolbox">已开启 Toolbox，请至「设置 > 全局资源」内套用「Toolbox 中文语言包」。\n\n另外提醒，Toolbox 的问题并不是向我们回报，请向他们回报。</string>
+    <string name="message_delete">「Toolbox 中文语言包」删除成功！</string>
+    <string name="message_no_delete">无法删除，可能是您未安装「Toolbox 中文语言包」。</string>
+    <string name="message_open_google_play">请帮本 APP 评分为 5 星，感谢您！</string>
+    <string name="message_open_market_error">找不到任何可启动 market:// 连结的应用程序。</string>
+    <string name="message_open_website_error">找不到任何可开启网页的浏览器。</string>
+    <string name="message_no_network">无网路连接，请检察您的网路状态。</string>
 
-    <string name="alertdialog_title_successful">安装成功</string>
-    <string name="alertdialog_message_successful">請啟動 Toolbox 並至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包！</string>
-    <string name="alertdialog_message_exception_successful">您虽然跳过广告 (广告是我们的收入来源)，但我们还是让您安装成功，请启动 Toolbox 并至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包！</string>
-    <string name="alertdialog_message_no_network_successful">无网路无法加载广告 (广告是我们的收入来源)，但我们还是让您安装成功，请启动 Toolbox 并至「设置 > 全球资源包」内套用 Toolbox 正体中文资源包！</string>
-    <string name="alertdialog_title_error">安装失败</string>
-    <string name="alertdialog_message_error">请联络开发人员！</string>
+    <string name="alertdialog_title_message">信息</string>
+    <string name="alertdialog_message_install">您确定现在要安装「Toolbox 中文语言包」吗？\n点击确认将会立即开启「Toolbox for Minecraft: PE」。\n\n开启后在「设置 > 全局资源」内套用资源包，如果未找到请至游戏「设置 > 档案」内的「文件储存位置」修改为「外部」。\n\n提醒您，本语言文件是依照 Toolbox %s 版本所翻译，但如果未来版本的 Toolbox 语言文件没有更新都是支援的，请不要乱在 Google Play 评论负评。</string>
+    <string name="alertdialog_message_open_mcbe">您确定要启动「Minecraft (BE)」吗？</string>
+    <string name="alertdialog_message_open_toolbox">您确定要启动「Toolbox for Minecraft: PE」吗？</string>
     <string name="alertdialog_title_warning">警告</string>
-    <string name="alertdialog_message_authorization">您必须授权本应用程序存取装置档案的权限，功能才可正常使用。</string>
-    <string name="alertdialog_message_delete">您确定要删除「Toolbox 正体中文资源包」吗？</string>
-    <string name="alertdialog_message_ad_load_failed">广告加载失败 (广告是我们的收入来源)，您是否要跳过加载广告直接安装语言包？</string>
-    <string name="alertdialog_message_not_viewing_ad">您未看完广告，无法安装「Toolbox 正体中文资源包」。</string>
-    <string name="alertdialog_message_ad_blocking">系统侦测到您的装置阻挡了广告，广告是我们的收入来源，以维持服务运作，请先关闭广告阻挡后再重新启动 App。</string>
-    <string name="alertdialog_title_contact_list">请选择联络方式</string>
-    <string name="alertdialog_message_no_install_line">您未安装 \"Line\"，是否要前往 Google Play 安装？</string>
-    <string name="alertdialog_button_yes">是</string>
-    <string name="alertdialog_button_no">否</string>
-    <string name="alertdialog_button_ok">确定</string>
-    <string name="alertdialog_button_cancel">取消</string>
-    <string name="alertdialog_button_start">啟動</string>
-    <string name="alertdialog_button_close">關閉</string>
-    <string name="alertdialog_button_report">回报问题</string>
+    <string name="alertdialog_message_authorization">您必须授权本应用程序存取装置文件的权限，功能才可正常使用。</string>
+    <string name="alertdialog_message_delete">您确定要删除「Toolbox 中文语言包」吗？</string>
+    <string name="alertdialog_title_goto_google_play">前往 Google Play</string>
+    <string name="alertdialog_message_goto_rating">点击确定前往 Google Play，请帮我们的应用程序评分为 5 星，感谢您！</string>
+
+    <string name="google_ad_key">ca-app-pub-3794226192931198/2746178669</string>
 </resources>

@@ -1,31 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <group>
+        <item
+            android:id="@+id/nav_website"
+            android:icon="@drawable/ic_website"
+            android:title="@string/nav_website" />
         <item
             android:id="@+id/nav_google_play"
             android:icon="@drawable/ic_menu_google_play"
             android:title="@string/nav_google_play" />
-        <item
-            android:id="@+id/nav_contact"
-            android:icon="@drawable/ic_dialog_email"
-            android:title="@string/nav_contact" />
     </group>
 
     <item android:title="@string/nav_title_must_install">
         <menu>
             <item
-                android:id="@+id/nav_mcpe_google_play"
-                android:icon="@drawable/ic_menu_mcpe"
+                android:id="@+id/nav_mcpe"
+                android:icon="@drawable/ic_menu_mcbe"
                 android:title="@string/nav_mcpe" />
             <item
-                android:id="@+id/nav_toolbox_google_play"
+                android:id="@+id/nav_toolbox"
                 android:icon="@drawable/ic_menu_toolbox"
                 android:title="@string/nav_toolbox" />
         </menu>
     </item>
 
     <item android:title="@string/nav_title_about">
+        <menu>
+            <item
+                android:id="@+id/nav_developer_facebook"
+                android:icon="@drawable/ic_menu_facebook"
+                android:title="@string/nav_developer_facebook" />
+            <item
+                android:id="@+id/nav_developer_twitter"
+                android:icon="@drawable/ic_menu_twitter"
+                android:title="@string/nav_developer_twitter" />
+            <item
+                android:id="@+id/nav_developer_discord"
+                android:icon="@drawable/ic_menu_discord"
+                android:title="@string/nav_developer_discord" />
+        </menu>
+    </item>
+
+    <item android:title="@string/nav_title_opensource">
         <menu>
             <item
                 android:id="@+id/nav_github_source"

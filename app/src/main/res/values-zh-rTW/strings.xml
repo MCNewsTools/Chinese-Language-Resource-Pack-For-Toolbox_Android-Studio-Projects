@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">正體中文資源包 For Toolbox</string>
+    <string name="app_name">中文語言資源包 For Toolbox</string>
     <string name="app_author">By.旋風之音 GoneTone</string>
-
-    <string name="banner_ad_unit_id">ca-app-pub-3794226192931198/2746178669</string>
 
     <string name="navigation_drawer_open">開啟導航欄</string>
     <string name="navigation_drawer_close">關閉導航欄</string>
 
     <string name="nav_google_play">前往 Google Play</string>
-    <string name="nav_contact">聯絡開發人員</string>
+    <string name="nav_website">前往開發人員網站</string>
     <string name="nav_title_must_install">必須安裝的 App</string>
-    <string name="nav_mcpe">Minecraft: Pocket Edition</string>
+    <string name="nav_mcpe">Minecraft: Bedrock Edition</string>
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
     <string name="nav_title_about">關於</string>
+    <string name="nav_developer_facebook">開發人員 Facebook</string>
+    <string name="nav_developer_twitter">開發人員 Twitter</string>
+    <string name="nav_developer_discord">開發人員 Discord 群組</string>
+    <string name="nav_title_opensource">開源</string>
     <string name="nav_github_source">此項目開源至 GitHub</string>
 
-    <string name="action_delete">刪除資源包</string>
+    <string name="action_delete">刪除「Toolbox 中文語言包」</string>
     <string name="action_share">分享此 APP</string>
 
-    <string name="text_description">將您的 Toolbox 模組新增正體中文！\n\n請點擊下方按鈕安裝資源包，完成後請啟動 Toolbox 並於「設定 > 全球資源包」內套用。</string>
-    <string name="text_share_to">分享至...</string>
-    <string name="text_share_body">立刻下載「正體中文資源包 For Toolbox」，讓您的「Toolbox 模組」有正體中文語言！</string>
+    <string name="text_description">將您的 Toolbox 模組新增中文語言！\n\n請點擊下方按鈕安裝資源包，完成後請啟動 Toolbox 並於「設定 > 全球資源包」內套用。</string>
+    <string name="text_share_to">分享至&#8230;</string>
+    <string name="text_share_body">立刻下載「中文語言資源包 For Toolbox」，讓您的「Toolbox 模組」有中文語言！</string>
 
-    <string name="button_install">安裝語言包</string>
-    <string name="button_re_install">重新安裝語言包</string>
-    <string name="button_update">更新語言包</string>
-    <string name="button_load_failed_retry">加載失敗，重試</string>
-    <string name="button_text_loading">加載中...</string>
-    <string name="button_text_installing">安裝中...</string>
+    <string name="button_install">安裝「Toolbox 中文語言包」</string>
+    <string name="button_re_install">重新安裝「Toolbox 中文語言包」</string>
+    <string name="button_update">更新「Toolbox 中文語言包」 - %s</string>
+    <string name="button_text_loading">加載中&#8230;</string>
+    <string name="button_text_waiting_installation">等待安裝中&#8230;</string>
+    <string name="button_text_verify_permissions">驗證權限中&#8230;</string>
 
-    <string name="message_no_install_toolbox">您未安裝 Toolbox，請至 Google Play 下載！</string>
-    <string name="message_open_toolbox">已開啟 Toolbox，請至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包。</string>
-    <string name="message_delete">語言包刪除成功！</string>
-    <string name="message_open_google_play">請幫本 APP 評分為 5 星，感謝您OuO</string>
-    <string name="message_no_network">無網路連接，請檢察您的網路狀態</string>
+    <string name="message_no_install_mcbe">「Minecraft (BE)」未安裝，請至 Google Play 下載！</string>
+    <string name="message_no_install_toolbox">「Toolbox for Minecraft: PE」未安裝，請至 Google Play 下載！</string>
+    <string name="message_open_toolbox">已開啟 Toolbox，請至「設定 > 全球資源包」內套用「Toolbox 中文語言包」。\n\n另外提醒，Toolbox 的問題並不是向我們回報，請向他們回報。</string>
+    <string name="message_delete">「Toolbox 中文語言包」刪除成功！</string>
+    <string name="message_no_delete">無法刪除，可能是您未安裝「Toolbox 中文語言包」。</string>
+    <string name="message_open_google_play">請幫本 APP 評分為 5 星，感謝您！</string>
+    <string name="message_open_market_error">找不到任何可啟動 market:// 連結的應用程式。</string>
+    <string name="message_open_website_error">找不到任何可開啟網頁的瀏覽器。</string>
+    <string name="message_no_network">無網路連接，請檢察您的網路狀態。</string>
 
-    <string name="alertdialog_title_successful">安裝成功</string>
-    <string name="alertdialog_message_successful">請啟動 Toolbox 並至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包！</string>
-    <string name="alertdialog_message_exception_successful">您雖然跳過廣告 (廣告是我們的收入來源)，但我們還是讓您安裝成功，請啟動 Toolbox 並至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包！</string>
-    <string name="alertdialog_message_no_network_successful">無網路無法加載廣告 (廣告是我們的收入來源)，但我們還是讓您安裝成功，請啟動 Toolbox 並至「設定 > 全球資源包」內套用 Toolbox 正體中文資源包！</string>
-    <string name="alertdialog_title_error">安裝失敗</string>
-    <string name="alertdialog_message_error">請聯絡開發人員！</string>
+    <string name="alertdialog_title_message">訊息</string>
+    <string name="alertdialog_message_install">您確定現在要安裝「Toolbox 中文語言包」嗎？\n點擊確認將會立即開啟「Toolbox for Minecraft: PE」。\n\n開啟後在「設定 > 全球資源包」內套用資源包，如果未找到請至遊戲「設定 > 設定檔」內的「檔案存放位置」修改為「外部」。\n\n提醒您，本語言檔案是依照 Toolbox %s 版本所翻譯，但如果未來版本的 Toolbox 語言檔案沒有更新都是支援的，請不要亂在 Google Play 評論負評。</string>
+    <string name="alertdialog_message_open_mcbe">您確定要啟動「Minecraft (BE)」嗎？</string>
+    <string name="alertdialog_message_open_toolbox">您確定要啟動「Toolbox for Minecraft: PE」嗎？</string>
     <string name="alertdialog_title_warning">警告</string>
     <string name="alertdialog_message_authorization">您必須授權本應用程式存取裝置檔案的權限，功能才可正常使用。</string>
-    <string name="alertdialog_message_delete">您確定要刪除「Toolbox 正體中文資源包」嗎？</string>
-    <string name="alertdialog_message_ad_load_failed">廣告加載失敗 (廣告是我們的收入來源)，您是否要跳過加載廣告直接安裝語言包？</string>
-    <string name="alertdialog_message_not_viewing_ad">您未看完廣告，無法安裝「Toolbox 正體中文資源包」。</string>
-    <string name="alertdialog_message_ad_blocking">系統偵測到您的裝置阻擋了廣告，廣告是我們的收入來源，以維持服務運作，請先關閉廣告阻擋後再重新啟動 App。</string>
-    <string name="alertdialog_title_contact_list">請選擇聯絡方式</string>
-    <string name="alertdialog_message_no_install_line">您未安裝 \"Line\"，是否要前往 Google Play 安裝？</string>
-    <string name="alertdialog_button_yes">是</string>
-    <string name="alertdialog_button_no">否</string>
-    <string name="alertdialog_button_ok">確定</string>
-    <string name="alertdialog_button_cancel">取消</string>
-    <string name="alertdialog_button_start">啟動</string>
-    <string name="alertdialog_button_close">關閉</string>
-    <string name="alertdialog_button_report">回報問題</string>
+    <string name="alertdialog_message_delete">您確定要刪除「Toolbox 中文語言包」嗎？</string>
+    <string name="alertdialog_title_goto_google_play">前往 Google Play</string>
+    <string name="alertdialog_message_goto_rating">點擊確定前往 Google Play，請幫我們的應用程式評分為 5 星，感謝您！</string>
+
+    <string name="google_ad_key">ca-app-pub-3794226192931198/2746178669</string>
 </resources>

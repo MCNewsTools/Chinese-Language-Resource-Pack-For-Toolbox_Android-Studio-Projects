@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.techplayer.toolbox.twlangnew.MainActivity"
+    tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,6 +23,7 @@
 
             <ImageView
                 android:id="@+id/image"
+                android:contentDescription="UIPack Banners"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
@@ -43,16 +44,17 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/text_description"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_alignParentBottom="true">
+            android:layout_height="57dp">
 
             <Button
-                android:id="@+id/btn_download"
+                android:id="@+id/button_install"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 android:gravity="center"
@@ -67,9 +69,10 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="SMART_BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"
+            ads:adUnitId="@string/google_ad_key"
             ads:layout_editor_absoluteY="389dp"
             ads:layout_editor_absoluteX="0dp">
         </com.google.android.gms.ads.AdView>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

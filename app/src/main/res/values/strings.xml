@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Traditional Chinese Resource Pack For Toolbox</string>
+    <string name="app_name">Chinese Language Resource Pack For Toolbox</string>
     <string name="app_author">By.旋風之音 GoneTone</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-3794226192931198/2746178669</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open Navigation Bar</string>
+    <string name="navigation_drawer_close">Close Navigation Bar</string>
 
     <string name="nav_google_play">Go to Google Play</string>
-    <string name="nav_contact">Contact the developer</string>
-    <string name="nav_title_must_install">Must install App</string>
-    <string name="nav_mcpe">Minecraft: Pocket Edition</string>
+    <string name="nav_website">Go to Developer Website</string>
+    <string name="nav_title_must_install">Must Be Installed App</string>
+    <string name="nav_mcpe">Minecraft: Bedrock Edition</string>
     <string name="nav_toolbox">Toolbox for Minecraft: PE</string>
     <string name="nav_title_about">About</string>
+    <string name="nav_developer_facebook">Developer Facebook</string>
+    <string name="nav_developer_twitter">Developer Twitter</string>
+    <string name="nav_developer_discord">Developer Discord Group</string>
+    <string name="nav_title_opensource">Open source</string>
     <string name="nav_github_source">This project is open source to GitHub</string>
 
-    <string name="action_delete">Delete resource pack</string>
+    <string name="action_delete">Delete \"Toolbox Chinese Language Resource Pack\"</string>
     <string name="action_share">Share this APP</string>
 
-    <string name="text_description">Added Traditional Chinese to your Toolbox mod\n\nPlease click the button below to install the Resource Pack, after finishing, start the Toolbox and apply it in the "Settings> Global Resource Pack".</string>
-    <string name="text_share_to">Share to...</string>
-    <string name="text_share_body">Download the "Traditional Chinese Resource Pack For Toolbox" at once, so that your "Toolbox mod" has a Traditional Chinese language!</string>
+    <string name="text_description">Add your Chinese language to your Toolbox module!\n\nPlease click the button below to install the resource pack. After you finish, please launch Toolbox and apply it in \"Settings > Global Resource Pack\".</string>
+    <string name="text_share_to">Share to&#8230;</string>
+    <string name="text_share_body">Download now \"Chinese Language Resource Pack For Toolbox\", Let your \"Toolbox Mod\" have Chinese language!</string>
 
-    <string name="button_install">Install language pack</string>
-    <string name="button_re_install">Reinstall language pack</string>
-    <string name="button_update">Update language pack</string>
-    <string name="button_load_failed_retry">Load failed, retry</string>
-    <string name="button_text_loading">Loading...</string>
-    <string name="button_text_installing">Installing...</string>
+    <string name="button_install">Install \"Toolbox Chinese Language Resource Pack\"</string>
+    <string name="button_re_install">Re-Install \"Toolbox Chinese Language Resource Pack\"</string>
+    <string name="button_update">Update \"Toolbox Chinese Language Resource Pack\" - %s</string>
+    <string name="button_text_loading">Loading&#8230;</string>
+    <string name="button_text_waiting_installation">Waiting For Install&#8230;</string>
+    <string name="button_text_verify_permissions">Verify Permissions&#8230;</string>
 
-    <string name="message_no_install_toolbox">You do not have Toolbox installed. Please download it on Google Play!</string>
-    <string name="message_open_toolbox">Open Toolbox, go to "Settings> Global Resource Pack" to apply within Toolbox Traditional Chinese Resource Pack.</string>
-    <string name="message_delete">Language pack deleted successfully!</string>
-    <string name="message_open_google_play">Please help this APP rated 5 stars, thank you OuO</string>
-    <string name="message_no_network">No internet connection, please check your network status</string>
+    <string name="message_no_install_mcbe">\"Minecraft (BE)\" Not Installed, Please go to Google Play download!</string>
+    <string name="message_no_install_toolbox">\"Toolbox for Minecraft: PE\" Not Installed, Please go to Google Play download!</string>
+    <string name="message_open_toolbox">Toolbox is enabled, please apply \"Toolbox Chinese Language Pack\" in \"Settings > Global Resource Pack\".\n\nAlternatively, the problem with Toolbox is not to reward us, please report back to them.</string>
+    <string name="message_delete">\"Toolbox Chinese Language Resource Pack\" Successfully Deleted!</string>
+    <string name="message_no_delete">Unable To Delete, Maybe you haven\'t installed the \"Toolbox Chinese Language Resource Pack\".</string>
+    <string name="message_open_google_play">Please help this app rate 5 stars, thank you!</string>
+    <string name="message_open_market_error">No applications were found to start the market:// link.</string>
+    <string name="message_open_website_error">No browsers were found to open web pages.</string>
+    <string name="message_no_network">No internet connection, please check your network status.</string>
 
-    <string name="alertdialog_title_successful">Successful installation</string>
-    <string name="alertdialog_message_successful">Please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
-    <string name="alertdialog_message_exception_successful">Although you skip ad (ad is our revenue source), but we still allows you to install success, please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
-    <string name="alertdialog_message_no_network_successful">No network can not load ad (ad is our revenue source), but we still allows you to install success, please start the Toolbox and apply the Toolbox Traditional Chinese Resource Pack to the "Settings > Global Resource Pack"!</string>
-    <string name="alertdialog_title_error">Install failed</string>
-    <string name="alertdialog_message_error">Please contact the developers!</string>
+    <string name="alertdialog_title_message">Message</string>
+    <string name="alertdialog_message_install">Are you sure you want to install \"Toolbox Chinese Language Resource Pack\" now?\nClicking to confirm will open \"Toolbox for Minecraft: PE\" immediately.\n\nOpen the resource pack in \"Settings > Global Resource Pack\". If it is not found, please change the \"File Storage Location\" in the game \"Settings > Profile\" to \"External\".\n\nRemind you that this language file is translated according to the version of Toolbox %s, but if future versions of the Toolbox language file are not supported, please don\'t mess with comments on Google Play comments.</string>
+    <string name="alertdialog_message_open_mcbe">Are you sure you want to launch "Minecraft (BE)"?</string>
+    <string name="alertdialog_message_open_toolbox">Are you sure you want to launch "Toolbox for Minecraft: PE"?</string>
     <string name="alertdialog_title_warning">Warning</string>
-    <string name="alertdialog_message_authorization">You must authorize the app to access the device file, the function before normal use.</string>
-    <string name="alertdialog_message_delete">Are you sure you want to delete the "Toolbox Traditional Chinese Resource Pack"?</string>
-    <string name="alertdialog_message_ad_load_failed">Ad load failed (ad is our revenue source), do you want to skip the ad is loaded directly install language pack?</string>
-    <string name="alertdialog_message_not_viewing_ad">You have not finished watching ad, unable to install "Toolbox Traditional Chinese Resource Pack".</string>
-    <string name="alertdialog_message_ad_blocking">The system detects that your device block the ad, ad is our source of income to sustain the operation of the service, turn off the ad block and restart the App.</string>
-    <string name="alertdialog_title_contact_list">Please select contact information</string>
-    <string name="alertdialog_message_no_install_line">You do not install "Line", if you want to go to Google Play installation?</string>
-    <string name="alertdialog_button_yes">Yes</string>
-    <string name="alertdialog_button_no">No</string>
-    <string name="alertdialog_button_ok">Ok</string>
-    <string name="alertdialog_button_cancel">Cancel</string>
-    <string name="alertdialog_button_start">Start</string>
-    <string name="alertdialog_button_close">Close</string>
-    <string name="alertdialog_button_report">Report the problem</string>
+    <string name="alertdialog_message_authorization">You must authorize the application to access the device file for the function to work.</string>
+    <string name="alertdialog_message_delete">Are you sure you want to delete the \"Toolbox Chinese Language Resource Pack\"?</string>
+    <string name="alertdialog_title_goto_google_play">Go to Google Play</string>
+    <string name="alertdialog_message_goto_rating">Click OK to go to Google Play, please rate our app as 5 stars, thank you!</string>
+
+    <string name="google_ad_key">ca-app-pub-3794226192931198/2746178669</string>
 </resources>
