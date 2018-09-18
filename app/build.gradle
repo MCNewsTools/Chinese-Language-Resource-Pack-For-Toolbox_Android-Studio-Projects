@@ -6,7 +6,7 @@ android {
         applicationId "org.techplayer.toolbox.twlangnew"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 28
+        versionCode 29
         versionName "4.3.8.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
