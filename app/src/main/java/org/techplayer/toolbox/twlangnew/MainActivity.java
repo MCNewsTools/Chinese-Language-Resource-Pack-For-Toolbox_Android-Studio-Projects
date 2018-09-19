@@ -548,6 +548,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /* 開始 */
     private void startSample() {
         Button btn = (Button) findViewById(R.id.button_install);
         btn.setEnabled(true); // 啟用按鈕
@@ -595,22 +596,6 @@ public class MainActivity extends AppCompatActivity
             }
             ((TextView)findViewById(R.id.button_install)).setText(buttonText); // 更新按鈕顯示文字
         }
-
-        // 當 button_install 按鈕被點擊時
-        findViewById(R.id.button_install).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ConnectivityManager cManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo info = cManager.getActiveNetworkInfo();
-                if (info != null && info.isAvailable()) {
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show(); // 顯示 Google 插頁式廣告
-                    }
-                } else {
-                    installResourcePack(); // 執行安裝資源包
-                }
-            }
-        });
     }
 
     // 前往 Google Play 評分訊息
@@ -669,19 +654,40 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
-                startSample();
+
+                startSample(); // 開始
+
+                // 當 button_install 按鈕被點擊時
+                findViewById(R.id.button_install).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show(); // 顯示 Google 插頁式廣告
+                        }
+                    }
+                });
             }
 
             @Override
             public void onAdClosed() {
                 super.onAdClosed();
+
                 installResourcePack(); // 執行安裝資源包
             }
 
             @Override
             public void onAdFailedToLoad(int i) {
                 super.onAdFailedToLoad(i);
-                startSample();
+
+                startSample(); // 開始
+
+                // 當 button_install 按鈕被點擊時
+                findViewById(R.id.button_install).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        installResourcePack(); // 執行安裝資源包
+                    }
+                });
             }
         });
 
