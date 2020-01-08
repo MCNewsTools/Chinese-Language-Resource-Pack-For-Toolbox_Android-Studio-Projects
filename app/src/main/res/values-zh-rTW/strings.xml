@@ -21,7 +21,7 @@
     <string name="action_delete">刪除「Toolbox 中文語言包」</string>
     <string name="action_share">分享此 APP</string>
 
-    <string name="text_description">將您的 Toolbox 模組新增中文語言！\n\n請點擊下方按鈕安裝資源包，完成後請啟動 Toolbox 並於「設定 > 全球資源包」內套用。</string>
+    <string name="text_description">將您的 Toolbox 模組新增中文語言！\n\n請點擊下方按鈕安裝資源包，完成後請啟動 Toolbox 並於「設定 > 全球資源包」內套用。\n\n繁體中文翻譯：旋風之音 GoneTone</string>
     <string name="text_share_to">分享至&#8230;</string>
     <string name="text_share_body">立刻下載「中文語言資源包 For Toolbox」，讓您的「Toolbox 模組」有中文語言！</string>
 

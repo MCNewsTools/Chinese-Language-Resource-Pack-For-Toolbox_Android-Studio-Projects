@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity
     Context context = this;
     File resourcePackVersionFile = null;
 
-    String toolboxVersion = "4.3.8.2"; // 依據的 Toolbox 版本
-    String resourcePackVersion = "4.3.8.2"; // 資源包版本
+    String toolboxVersion = "4.6.4"; // 依據的 Toolbox 版本
+    String resourcePackVersion = "4.6.4"; // 資源包版本
     String resourcePackName = "toolbox-zh"; // 資源包名稱 (也用於檔案資料夾名稱開頭關鍵字)
     String resourcePackFilenameExtension = "zip"; // 資源包檔案副檔名
     File resourcePackDirectory = new File(Environment.getExternalStorageDirectory() + "/games/com.mojang/resource_packs/"); // 資源包放置目錄

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">中文语言资源包 For Toolbox</string>
-    <string name="app_author">By.旋風之音 GoneTone</string>
+    <string name="app_author">By.旋风之音 GoneTone</string>
 
     <string name="navigation_drawer_open">开启导航栏</string>
     <string name="navigation_drawer_close">关闭导航栏</string>
@@ -21,7 +21,7 @@
     <string name="action_delete">删除「Toolbox 中文语言包」</string>
     <string name="action_share">分享此 APP</string>
 
-    <string name="text_description">将您的 Toolbox 模组新增中文语言！\n\n请点击下方按钮安装资源包，完成后请启动 Toolbox 并于「设置 > 全局资源」内套用。</string>
+    <string name="text_description">将您的 Toolbox 模组新增中文语言！\n\n请点击下方按钮安装资源包，完成后请启动 Toolbox 并于「设置 > 全局资源」内套用。\n\n简体中文翻译：旋风之音 GoneTone、Yunxiao LU</string>
     <string name="text_share_to">分享至&#8230;</string>
     <string name="text_share_body">立刻下载「中文语言资源包 For Toolbox」，让您的「Toolbox 模组」有中文语言！</string>
 

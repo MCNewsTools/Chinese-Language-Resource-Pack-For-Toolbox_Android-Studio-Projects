@@ -6,8 +6,8 @@ android {
         applicationId "org.techplayer.toolbox.twlangnew"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 31
-        versionName "4.3.8.2.2"
+        versionCode 32
+        versionName "4.6.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
